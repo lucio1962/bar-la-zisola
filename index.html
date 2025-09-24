@@ -15,7 +15,7 @@
     main {margin-top:300px; padding:20px;}
     h1 {margin:0; font-size:2.2em;}
     h2 {color:#d84315; margin-top:30px;}
-    .box {background:#fff; border-radius:10px; padding:15px; margin:15px auto; max-width:700px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+    .box {background:#fff; border-radius:10px; padding:15px; margin:15px auto; max-width:700px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
     .panino h3 {margin:0 0 6px 0; color:#d84315;}
     .panino p {margin:0 0 10px 0; font-style:italic; color:#555;}
     .panino label {display:block; margin:4px 0;}
@@ -40,8 +40,8 @@
   <h1>Bar La Zisola</h1>
   <p>Strada Statale 115, Noto (SR) • ☎️ 0931 837682</p>
   <p style="margin-top:10px; font-style:italic; font-size:1.1em; text-align:center; max-width:700px; margin:auto;">
-    Panini caldi e fragranti, ingredienti genuini.  
-    Da anni Ciccio vi accoglie con panini sfiziosi e veloci, perfetti per una sosta sulla Statale 115 a Noto.  
+    Panini caldi e fragranti, ingredienti genuini.
+    Da anni Ciccio vi accoglie con panini sfiziosi e veloci, perfetti per una sosta sulla Statale 115 a Noto.
     Puoi gustarli ai nostri tavolini, portarli via o richiedere la consegna a domicilio.
   </p>
 </header>
@@ -62,7 +62,7 @@
     <p>Base: carne di cavallo, cipolla</p>
     <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
       <select class="variante"><option>Cipolla fresca</option><option>Cipolla caramellata</option></select>
@@ -76,7 +76,164 @@
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
-  <!-- (gli altri panini restano uguali: Bresaola, Porchetta, Mortadella, Crudo, Cotto, Salame, Pancetta, Caprese) -->
+  <!-- Bresaola -->
+  <div class="box panino" data-base="Bresaola">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
+    <h3>Panino con bresaola</h3>
+    <p>Base: bresaola, rucola, parmigiano</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
+    <label>Tipo pane:
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
+    </label>
+    <label>Variante:
+      <select class="variante"><option>Parmigiano a scaglie</option><option>Grana Padano</option></select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Mozzarella" class="extra"> Mozzarella</label>
+    <label><input type="checkbox" value="Funghi piccanti" class="extra"> Funghi piccanti</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Porchetta -->
+  <div class="box panino" data-base="Porchetta">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
+    <h3>Panino con porchetta</h3>
+    <p>Base: porchetta</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
+    <label>Tipo pane:
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
+    </label>
+    <label>Variante:
+      <select class="variante"><option>Semplice</option><option>Speziata</option></select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
+    <label><input type="checkbox" value="Peperoni" class="extra"> Peperoni</label>
+    <label><input type="checkbox" value="Patatine" class="extra"> Patatine</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Mortadella -->
+  <div class="box panino" data-base="Mortadella">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
+    <h3>Panino con mortadella</h3>
+    <p>Base: mortadella</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
+    <label>Tipo pane:
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
+    </label>
+    <label>Variante:
+      <select class="variante"><option>Classica</option><option>Con pistacchi</option></select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Prosciutto crudo -->
+  <div class="box panino" data-base="Prosciutto crudo">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
+    <h3>Panino con prosciutto crudo</h3>
+    <p>Base: prosciutto crudo</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
+    <label>Tipo pane:
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
+    </label>
+    <label>Variante:
+      <select class="variante"><option>Dolce</option><option>Stagionato</option></select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Mozzarella" class="extra"> Mozzarella</label>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Insalata" class="extra"> Insalata</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Prosciutto cotto -->
+  <div class="box panino" data-base="Prosciutto cotto">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
+    <h3>Panino con prosciutto cotto</h3>
+    <p>Base: prosciutto cotto</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
+    <label>Tipo pane:
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
+    </label>
+    <label>Variante:
+      <select class="variante"><option>Alta qualità</option><option>Affumicato</option></select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+    <label><input type="checkbox" value="Maionese" class="extra"> Maionese</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Salame -->
+  <div class="box panino" data-base="Salame">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
+    <h3>Panino con salame</h3>
+    <p>Base: salame</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
+    <label>Tipo pane:
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
+    </label>
+    <label>Variante:
+      <select class="variante"><option>Milano</option><option>Ungherese</option><option>Napoli</option></select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Rucola" class="extra"> Rucola</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Pancetta -->
+  <div class="box panino" data-base="Pancetta">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
+    <h3>Panino con pancetta</h3>
+    <p>Base: pancetta</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
+    <label>Tipo pane:
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
+    </label>
+    <label>Variante:
+      <select class="variante"><option>Arrostita</option><option>Affumicata</option></select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
+    <label><input type="checkbox" value="Patatine" class="extra"> Patatine</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Caprese -->
+  <div class="box panino" data-base="Caprese">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
+    <h3>Panino caprese</h3>
+    <p>Base: mozzarella, pomodoro, basilico</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
+    <label>Tipo pane:
+      <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
+    </label>
+    <label>Variante:
+      <select class="variante"><option>Mozzarella fiordilatte</option><option>Bufala DOP</option></select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Origano" class="extra"> Origano</label>
+    <label><input type="checkbox" value="Olio extravergine" class="extra"> Olio extravergine</label>
+    <label><input type="checkbox" value="Rucola" class="extra"> Rucola</label>
+    <label><input type="checkbox" value="Funghi piccanti" class="extra"> Funghi piccanti</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
 
   <div class="controls">
     <button type="button" onclick="inviaWhatsApp()">📲 Invia ordine su WhatsApp</button>
@@ -91,26 +248,26 @@
 function inviaWhatsApp() {
   const cliente = document.getElementById("cliente").value.trim();
   const panini = document.querySelectorAll(".panino");
-  let messaggio = "";
+  let dettaglio = "";
   let count = 0;
 
   panini.forEach((p) => {
-    if (!p.querySelector(".attivo").checked) return;
+    if (!p.querySelector(".attivo").checked) return; // solo panini spuntati
 
     const base = p.dataset.base;
     const quantita = p.querySelector(".quantita").value;
-    const pane = p.querySelector("label select").value;
+    const pane = p.querySelector(".pane").value;
     const variante = p.querySelector(".variante") ? p.querySelector(".variante").value : "";
     const ingr = [...p.querySelectorAll(".extra:checked")].map(x => x.value);
     const note = p.querySelector("textarea").value.trim();
 
     count++;
-    messaggio += `Panino ${count}: ${quantita}x ${base}`;
-    if (variante) messaggio += " (" + variante + ")";
-    messaggio += " - " + pane;
-    if (ingr.length > 0) messaggio += " + " + ingr.join(", ");
-    if (note) messaggio += " | Note: " + note;
-    messaggio += "\n";
+    let riga = `Panino ${count}: ${quantita}x ${base}`;
+    if (variante) riga += ` (${variante})`;
+    riga += ` - ${pane}`;
+    if (ingr.length > 0) riga += ` + ${ingr.join(", ")}`;
+    if (note) riga += ` | Note: ${note}`;
+    dettaglio += riga + "\n";
   });
 
   if (count === 0) {
@@ -118,11 +275,9 @@ function inviaWhatsApp() {
     return;
   }
 
-  if (cliente) {
-    messaggio = "Ordine Bar La Zisola da: " + cliente + "\n\n" + messaggio;
-  } else {
-    messaggio = "Ordine Bar La Zisola (cliente non specificato)\n\n" + messaggio;
-  }
+  let messaggio = cliente
+    ? `Ordine Bar La Zisola da: ${cliente}\n\n${dettaglio}`
+    : `Ordine Bar La Zisola (cliente non specificato)\n\n${dettaglio}`;
 
   const url = "https://wa.me/393384461593?text=" + encodeURIComponent(messaggio);
   window.open(url, "_blank");
