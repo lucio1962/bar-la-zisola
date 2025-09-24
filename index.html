@@ -22,7 +22,7 @@
     .panino h3 {margin:0 0 6px 0; color:#d84315;}
     .panino p {margin:0 0 10px 0; font-style:italic; color:#555;}
     .panino label {display:block; margin:4px 0;}
-    .panino select, .panino textarea {
+    .panino select, .panino textarea, .panino input[type="number"] {
       width:100%; padding:6px; margin:6px 0; border:1px solid #ccc; border-radius:6px;
     }
     .panino textarea {resize:vertical;}
@@ -49,19 +49,15 @@
 
   <!-- Carne di cavallo -->
   <div class="panino" data-base="Carne di cavallo">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino con carne di cavallo</h3>
     <p>Base: carne di cavallo, cipolla</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Cipolla fresca</option>
-        <option>Cipolla caramellata</option>
-      </select>
+      <select class="variante"><option>Cipolla fresca</option><option>Cipolla caramellata</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Formaggio"> Formaggio</label>
@@ -74,19 +70,15 @@
 
   <!-- Bresaola -->
   <div class="panino" data-base="Bresaola">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino con bresaola</h3>
-    <p>Base: bresaola, rucola, parmigiano a scaglie</p>
+    <p>Base: bresaola, rucola, parmigiano</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Parmigiano a scaglie</option>
-        <option>Grana Padano</option>
-      </select>
+      <select class="variante"><option>Parmigiano a scaglie</option><option>Grana Padano</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
@@ -98,19 +90,15 @@
 
   <!-- Porchetta -->
   <div class="panino" data-base="Porchetta">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino con porchetta</h3>
-    <p>Base: porchetta, pane croccante</p>
+    <p>Base: porchetta</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Semplice</option>
-        <option>Speziata</option>
-      </select>
+      <select class="variante"><option>Semplice</option><option>Speziata</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Cipolla"> Cipolla</label>
@@ -122,19 +110,15 @@
 
   <!-- Mortadella -->
   <div class="panino" data-base="Mortadella">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino con mortadella</h3>
-    <p>Base: mortadella, pane morbido</p>
+    <p>Base: mortadella</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Classica</option>
-        <option>Con pistacchi</option>
-      </select>
+      <select class="variante"><option>Classica</option><option>Con pistacchi</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
@@ -145,19 +129,15 @@
 
   <!-- Prosciutto crudo -->
   <div class="panino" data-base="Prosciutto crudo">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino con prosciutto crudo</h3>
-    <p>Base: prosciutto crudo, pane croccante</p>
+    <p>Base: prosciutto crudo</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Dolce</option>
-        <option>Stagionato</option>
-      </select>
+      <select class="variante"><option>Dolce</option><option>Stagionato</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Mozzarella"> Mozzarella</label>
@@ -169,19 +149,15 @@
 
   <!-- Prosciutto cotto -->
   <div class="panino" data-base="Prosciutto cotto">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino con prosciutto cotto</h3>
-    <p>Base: prosciutto cotto, pane morbido</p>
+    <p>Base: prosciutto cotto</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Alta qualità</option>
-        <option>Affumicato</option>
-      </select>
+      <select class="variante"><option>Alta qualità</option><option>Affumicato</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Formaggio"> Formaggio</label>
@@ -192,20 +168,15 @@
 
   <!-- Salame -->
   <div class="panino" data-base="Salame">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino con salame</h3>
-    <p>Base: pane croccante e salame</p>
+    <p>Base: salame</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Milano</option>
-        <option>Ungherese</option>
-        <option>Napoli</option>
-      </select>
+      <select class="variante"><option>Milano</option><option>Ungherese</option><option>Napoli</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Formaggio"> Formaggio</label>
@@ -217,19 +188,15 @@
 
   <!-- Pancetta -->
   <div class="panino" data-base="Pancetta">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino con pancetta</h3>
-    <p>Base: pancetta arrostita, pane croccante</p>
+    <p>Base: pancetta</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Arrostita</option>
-        <option>Affumicata</option>
-      </select>
+      <select class="variante"><option>Arrostita</option><option>Affumicata</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
@@ -241,19 +208,15 @@
 
   <!-- Caprese -->
   <div class="panino" data-base="Caprese">
+    <label><input type="checkbox" class="attivo"> Seleziona questo panino</label>
     <h3>Panino caprese</h3>
     <p>Base: mozzarella, pomodoro, basilico</p>
+    <label>Quantità:<input type="number" min="1" value="1" class="quantita"></label>
     <label>Tipo pane:
-      <select>
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
+      <select><option>Ciabatta croccante</option><option>Morbido</option></select>
     </label>
     <label>Variante:
-      <select class="variante">
-        <option>Mozzarella fiordilatte</option>
-        <option>Bufala DOP</option>
-      </select>
+      <select class="variante"><option>Mozzarella fiordilatte</option><option>Bufala DOP</option></select>
     </label>
     <strong>Extra:</strong>
     <label><input type="checkbox" value="Origano"> Origano</label>
@@ -277,19 +240,32 @@
 function inviaWhatsApp() {
   const panini = document.querySelectorAll(".panino");
   let messaggio = "Ordine Bar La Zisola:\n";
-  panini.forEach((p, i) => {
+  let count = 0;
+
+  panini.forEach((p) => {
+    if (!p.querySelector(".attivo").checked) return;
+
     const base = p.dataset.base;
+    const quantita = p.querySelector(".quantita").value;
     const pane = p.querySelector("select").value;
     const variante = p.querySelector(".variante") ? p.querySelector(".variante").value : "";
     const ingr = [...p.querySelectorAll("input[type=checkbox]:checked")].map(x => x.value);
-    const note = p.querySelector("textarea").value;
-    messaggio += `Panino ${i+1}: ${base}`;
+    const note = p.querySelector("textarea").value.trim();
+
+    count++;
+    messaggio += `Panino ${count}: ${quantita}x ${base}`;
     if (variante) messaggio += " (" + variante + ")";
     messaggio += " - " + pane;
     if (ingr.length > 0) messaggio += " + " + ingr.join(", ");
     if (note) messaggio += " | Note: " + note;
     messaggio += "\n";
   });
+
+  if (count === 0) {
+    alert("Seleziona almeno un panino da ordinare");
+    return;
+  }
+
   const url = "https://wa.me/393384461593?text=" + encodeURIComponent(messaggio);
   window.open(url, "_blank");
 }
