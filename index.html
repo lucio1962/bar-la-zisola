@@ -2,246 +2,47 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Bar La Zisola - Panini & Snack</title>
+  <title>Bar La Zisola - Ordini Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fdfdfd;
-      color: #222;
-      line-height: 1.6;
-    }
-
+    body {font-family: 'Segoe UI', Tahoma, sans-serif; background:#fdfdfd; margin:0;}
     header {
-      background: linear-gradient(135deg, #ff7043, #d84315);
-      color: #fff;
-      padding: 25px 10px;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      text-align: center;
+      background: linear-gradient(135deg,#ff7043,#d84315);
+      color:white; text-align:center; padding:20px;
+      position:fixed; top:0; width:100%; z-index:1000;
     }
-    header h1 {
-      font-size: 3em;
-      font-weight: bold;
-    }
-    header p {
-      font-size: 1.2em;
-      opacity: 0.95;
-    }
-    header .contacts {
-      margin-top: 8px;
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-    header .contacts a {
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    header .contacts a.tel {
-      color: #ffeb3b;  /* giallo telefono */
-    }
-    header .contacts a.tel:hover {
-      color: #fff176;
-    }
-    header .contacts a.whatsapp {
-      color: #25D366;
-    }
-    header .contacts a.whatsapp img {
-      width: 22px;
-      height: 22px;
-    }
-    header .contacts a.whatsapp:hover {
-      color: #128C7E;
-    }
-
-    main {
-      margin-top: 190px;
-      padding: 20px;
-    }
-
+    main {margin-top:160px; padding:20px;}
+    h1 {margin:0; font-size:2.5em;}
+    h2 {color:#d84315; margin-top:30px;}
     .intro {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.2em;
-      margin-bottom: 40px;
-      background: #eeeeee;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      text-align: justify;
+      background:#eee; padding:20px; border-radius:12px;
+      max-width:800px; margin:auto; margin-bottom:30px;
     }
-
-    h2 {
-      text-align: center;
-      color: #d84315;
-      margin: 40px 0 20px;
-      font-size: 1.8em;
-      letter-spacing: 1px;
+    .ordine {
+      max-width:600px; margin:auto; background:#fff; padding:20px;
+      border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
     }
-
-    .menu {
-      max-width: 900px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+    .ordine label {display:block; margin:6px 0;}
+    .ordine input[type="number"], .ordine select, .ordine textarea {
+      width:100%; padding:8px; margin:6px 0 15px 0; border-radius:6px; border:1px solid #ccc;
     }
-
-    .item {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    .ordine button {
+      display:block; margin:20px auto; padding:12px 25px;
+      background:#25D366; color:white; font-size:1.2em;
+      border:none; border-radius:8px; cursor:pointer; font-weight:bold;
     }
-    .item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
-    .item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .item h3 {
-      padding: 15px;
-      font-size: 1.3em;
-      color: #d84315;
-      text-align: center;
-    }
-
-    .btn {
-      display: inline-block;
-      margin: 30px auto;
-      padding: 15px 35px;
-      background: linear-gradient(135deg, #ff9800, #f57c00);
-      color: white;
-      font-size: 1.3em;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.2s ease;
-    }
-    .btn:hover {
-      background: linear-gradient(135deg, #ef6c00, #e65100);
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #d84315;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.95em;
-    }
-    footer a {
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    footer a.tel {
-      color: #ffeb3b;
-    }
-    footer a.tel:hover {
-      color: #fff176;
-    }
-    footer a.whatsapp {
-      color: #25D366;
-    }
-    footer a.whatsapp img {
-      width: 20px;
-      height: 20px;
-    }
-    footer a.whatsapp:hover {
-      color: #128C7E;
-    }
+    .ordine button:hover {background:#128C7E;}
+    footer {background:#d84315; color:white; text-align:center; padding:15px; margin-top:40px;}
   </style>
 </head>
 <body>
 
 <header>
   <h1>Bar La Zisola</h1>
-  <p>Strada Statale 115, Noto (SR)</p>
-  <div class="contacts">
-    <a class="tel" href="tel:0931837682">☎️ 0931 837682</a>
-    <a class="whatsapp" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">
-      <img src="images/whatsapp.png" alt="WhatsApp"> WhatsApp
-    </a>
-  </div>
+  <p>Strada Statale 115, Noto (SR) • ☎️ 0931 837682</p>
 </header>
 
 <main>
   <div class="intro">
-    <p>
-      Da tanti anni <strong>Ciccio del Bar La Zisola</strong> prepara con passione panini unici e genuini, 
-      deliziando camionisti, lavoratori e viaggiatori di passaggio con ricette sempre abbondanti e gustose. 
-      Ingredienti freschi, pane croccante dei forni siciliani e tanta esperienza fanno del 
-      <strong>Bar La Zisola di Noto (SR)</strong> un punto di riferimento sulla Strada Statale 115.
-    </p>
-    <p>
-      Oltre ai panini, offriamo anche il <strong>menù completo</strong>: primo piatto, secondo e contorno 
-      a soli <strong>5 euro</strong>, per un pasto veloce e sostanzioso.
-    </p>
-  </div>
-
-  <h2>Panini caldi e non</h2>
-  <div class="menu">
-    <div class="item">
-      <img src="images/mortadella.jpg" alt="Mortadella">
-      <h3>Mortadella</h3>
-    </div>
-    <div class="item">
-      <img src="images/bresaola.jpg" alt="Bresaola e rucola">
-      <h3>Bresaola e rucola</h3>
-    </div>
-    <div class="item">
-      <img src="images/carne-di-cavallo.jpg" alt="Carne di cavallo">
-      <h3>Carne di cavallo</h3>
-    </div>
-    <div class="item">
-      <img src="images/porchetta.jpg" alt="Porchetta">
-      <h3>Porchetta</h3>
-    </div>
-  </div>
-
-  <h2>Patatine & Snack</h2>
-  <div class="menu">
-    <div class="item">
-      <img src="images/patatine.jpg" alt="Patatine fritte">
-      <h3>Patatine fritte</h3>
-    </div>
-    <div class="item">
-      <img src="images/snack.jpg" alt="Snack vari">
-      <h3>Snack misti</h3>
-    </div>
-  </div>
-
-  <div style="text-align:center;">
-    <a class="btn" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">
-      📲 Ordina su WhatsApp
-    </a>
-  </div>
-</main>
-
-<footer>
-  © 2025 Bar La Zisola - Strada Statale 115, Noto (SR) • 
-  <a class="tel" href="tel:0931837682">☎️ 0931 837682</a> • 
-  <a class="whatsapp" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">
-    <img src="images/whatsapp.png" alt="WhatsApp"> WhatsApp
-  </a>
-</footer>
-
-</body>
-</html>
+    <p><strong>Ciccio del Bar La Zisola</strong> prepara ogni giorno panini e piatti genuini 
+    per camionisti, lavoratori e viaggiatori. Qui puoi comporre
