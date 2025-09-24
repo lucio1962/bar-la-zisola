@@ -45,4 +45,91 @@
 <main>
   <div class="intro">
     <p><strong>Ciccio del Bar La Zisola</strong> prepara ogni giorno panini e piatti genuini 
-    per camionisti, lavoratori e viaggiatori. Qui puoi comporre
+    per camionisti, lavoratori e viaggiatori. Qui puoi comporre e inviare il tuo ordine via WhatsApp.</p>
+  </div>
+
+  <h2>Ordina il tuo pasto</h2>
+  <form id="ordineForm" class="ordine">
+
+    <label>Quanti panini?</label>
+    <input type="number" id="qtaPanini" min="1" value="1">
+
+    <label>Scegli ingredienti panino:</label>
+    <label><input type="checkbox" name="ingrediente" value="Salame"> Salame</label>
+    <label><input type="checkbox" name="ingrediente" value="Prosciutto crudo"> Prosciutto crudo</label>
+    <label><input type="checkbox" name="ingrediente" value="Prosciutto cotto"> Prosciutto cotto</label>
+    <label><input type="checkbox" name="ingrediente" value="Mortadella"> Mortadella</label>
+    <label><input type="checkbox" name="ingrediente" value="Pancetta"> Pancetta</label>
+    <label><input type="checkbox" name="ingrediente" value="Bresaola"> Bresaola</label>
+    <label><input type="checkbox" name="ingrediente" value="Porchetta"> Porchetta</label>
+    <label><input type="checkbox" name="ingrediente" value="Carne di cavallo"> Carne di cavallo</label>
+    <label><input type="checkbox" name="ingrediente" value="Salsiccia e funghi piccanti"> Salsiccia e funghi piccanti</label>
+    <label><input type="checkbox" name="ingrediente" value="Rucola"> Rucola</label>
+    <label><input type="checkbox" name="ingrediente" value="Pomodoro"> Pomodoro</label>
+    <label><input type="checkbox" name="ingrediente" value="Mozzarella"> Mozzarella</label>
+    <label><input type="checkbox" name="ingrediente" value="Patatine fritte"> Patatine fritte</label>
+
+    <label>Scegli un primo:</label>
+    <select id="primo">
+      <option value="">-- Nessuno --</option>
+      <option>Pasta al pomodoro</option>
+      <option>Pasta al ragù</option>
+      <option>Lasagne</option>
+    </select>
+
+    <label>Scegli un secondo:</label>
+    <select id="secondo">
+      <option value="">-- Nessuno --</option>
+      <option>Pollo alla griglia</option>
+      <option>Salsiccia</option>
+      <option>Carne di cavallo</option>
+    </select>
+
+    <label>Scegli un contorno:</label>
+    <select id="contorno">
+      <option value="">-- Nessuno --</option>
+      <option>Patatine fritte</option>
+      <option>Insalata</option>
+      <option>Verdure grigliate</option>
+    </select>
+
+    <label>Note aggiuntive:</label>
+    <textarea id="note" rows="3" placeholder="Esempio: senza sale, aggiungi maionese..."></textarea>
+
+    <button type="button" onclick="inviaWhatsApp()">📲 Invia ordine su WhatsApp</button>
+  </form>
+</main>
+
+<footer>
+  © 2025 Bar La Zisola - Strada Statale 115, Noto (SR)
+</footer>
+
+<script>
+function inviaWhatsApp() {
+  const qta = document.getElementById("qtaPanini").value;
+  const ingredienti = [...document.querySelectorAll('input[name="ingrediente"]:checked')]
+    .map(cb => cb.value);
+  const primo = document.getElementById("primo").value;
+  const secondo = document.getElementById("secondo").value;
+  const contorno = document.getElementById("contorno").value;
+  const note = document.getElementById("note").value;
+
+  let messaggio = "Ordine dal sito Bar La Zisola:\n";
+  messaggio += qta + " panino/i";
+  if (ingredienti.length > 0) {
+    messaggio += " con " + ingredienti.join(", ");
+  }
+  messaggio += "\n";
+
+  if (primo) messaggio += "Primo: " + primo + "\n";
+  if (secondo) messaggio += "Secondo: " + secondo + "\n";
+  if (contorno) messaggio += "Contorno: " + contorno + "\n";
+  if (note) messaggio += "Note: " + note + "\n";
+
+  const url = "https://wa.me/393384461593?text=" + encodeURIComponent(messaggio);
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
