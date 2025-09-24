@@ -12,7 +12,7 @@
       position:fixed; top:0; width:100%; z-index:1000;
       box-shadow:0 2px 6px rgba(0,0,0,0.3);
     }
-    main {margin-top:250px; padding:20px;}
+    main {margin-top:260px; padding:20px;}
     h1 {margin:0; font-size:2.2em;}
     h2 {color:#d84315; margin-top:30px;}
     .panino {
@@ -42,7 +42,7 @@
 <header>
   <h1>Bar La Zisola</h1>
   <p>Strada Statale 115, Noto (SR) • ☎️ 0931 837682</p>
-  <p style="margin-top:10px; font-style:italic; font-size:1.1em;">
+  <p style="margin-top:10px; font-style:italic; font-size:1.1em; text-align:center; max-width:700px; margin:auto;">
     Panini caldi e fragranti, ingredienti genuini.  
     Da anni Ciccio vi accoglie con panini sfiziosi e veloci, perfetti per una sosta sulla Statale 115 a Noto.  
     Puoi gustarli ai nostri tavolini, portarli via o richiedere la consegna a domicilio.
@@ -65,11 +65,11 @@
       <select class="variante"><option>Cipolla fresca</option><option>Cipolla caramellata</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Formaggio"> Formaggio</label>
-    <label><input type="checkbox" value="Funghi piccanti"> Funghi piccanti</label>
-    <label><input type="checkbox" value="Rucola"> Rucola</label>
-    <label><input type="checkbox" value="Patatine"> Patatine</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+    <label><input type="checkbox" value="Funghi piccanti" class="extra"> Funghi piccanti</label>
+    <label><input type="checkbox" value="Rucola" class="extra"> Rucola</label>
+    <label><input type="checkbox" value="Patatine" class="extra"> Patatine</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -86,10 +86,10 @@
       <select class="variante"><option>Parmigiano a scaglie</option><option>Grana Padano</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
-    <label><input type="checkbox" value="Mozzarella"> Mozzarella</label>
-    <label><input type="checkbox" value="Funghi piccanti"> Funghi piccanti</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Mozzarella" class="extra"> Mozzarella</label>
+    <label><input type="checkbox" value="Funghi piccanti" class="extra"> Funghi piccanti</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -106,10 +106,10 @@
       <select class="variante"><option>Semplice</option><option>Speziata</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Cipolla"> Cipolla</label>
-    <label><input type="checkbox" value="Peperoni"> Peperoni</label>
-    <label><input type="checkbox" value="Patatine"> Patatine</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
+    <label><input type="checkbox" value="Peperoni" class="extra"> Peperoni</label>
+    <label><input type="checkbox" value="Patatine" class="extra"> Patatine</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -126,9 +126,9 @@
       <select class="variante"><option>Classica</option><option>Con pistacchi</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
-    <label><input type="checkbox" value="Formaggio"> Formaggio</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -145,10 +145,10 @@
       <select class="variante"><option>Dolce</option><option>Stagionato</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Mozzarella"> Mozzarella</label>
-    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
-    <label><input type="checkbox" value="Insalata"> Insalata</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Mozzarella" class="extra"> Mozzarella</label>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Insalata" class="extra"> Insalata</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -165,9 +165,9 @@
       <select class="variante"><option>Alta qualità</option><option>Affumicato</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Formaggio"> Formaggio</label>
-    <label><input type="checkbox" value="Maionese"> Maionese</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+    <label><input type="checkbox" value="Maionese" class="extra"> Maionese</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -184,10 +184,10 @@
       <select class="variante"><option>Milano</option><option>Ungherese</option><option>Napoli</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Formaggio"> Formaggio</label>
-    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
-    <label><input type="checkbox" value="Rucola"> Rucola</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Rucola" class="extra"> Rucola</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -204,10 +204,10 @@
       <select class="variante"><option>Arrostita</option><option>Affumicata</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
-    <label><input type="checkbox" value="Cipolla"> Cipolla</label>
-    <label><input type="checkbox" value="Patatine"> Patatine</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+    <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
+    <label><input type="checkbox" value="Patatine" class="extra"> Patatine</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -224,11 +224,11 @@
       <select class="variante"><option>Mozzarella fiordilatte</option><option>Bufala DOP</option></select>
     </label>
     <strong>Extra:</strong>
-    <label><input type="checkbox" value="Origano"> Origano</label>
-    <label><input type="checkbox" value="Olio extravergine"> Olio extravergine</label>
-    <label><input type="checkbox" value="Rucola"> Rucola</label>
-    <label><input type="checkbox" value="Funghi piccanti"> Funghi piccanti</label>
-    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <label><input type="checkbox" value="Origano" class="extra"> Origano</label>
+    <label><input type="checkbox" value="Olio extravergine" class="extra"> Olio extravergine</label>
+    <label><input type="checkbox" value="Rucola" class="extra"> Rucola</label>
+    <label><input type="checkbox" value="Funghi piccanti" class="extra"> Funghi piccanti</label>
+    <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
     <textarea placeholder="Note extra..."></textarea>
   </div>
 
@@ -254,7 +254,7 @@ function inviaWhatsApp() {
     const quantita = p.querySelector(".quantita").value;
     const pane = p.querySelector("select").value;
     const variante = p.querySelector(".variante") ? p.querySelector(".variante").value : "";
-    const ingr = [...p.querySelectorAll("input[type=checkbox]:checked")].map(x => x.value);
+    const ingr = [...p.querySelectorAll(".extra:checked")].map(x => x.value); // solo extra
     const note = p.querySelector("textarea").value.trim();
 
     count++;
