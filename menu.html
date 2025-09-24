@@ -331,7 +331,7 @@ function inviaWhatsApp() {
     const note = p.querySelector("textarea").value.trim();
 
     count++;
-    let riga = `Panino ${count}: ${quantita}x ${base}`;
+    let riga = `${quantita}x ${base}`;
     if (variante) riga += ` (${variante})`;
     riga += ` - ${pane}`;
     if (ingr.length > 0) riga += ` + ${ingr.join(", ")}`;
@@ -345,8 +345,8 @@ function inviaWhatsApp() {
   }
 
   let messaggio = cliente
-    ? `Ordine Bar La Zisola da: ${cliente}\n\n${dettaglio}`
-    : `Ordine Bar La Zisola (cliente non specificato)\n\n${dettaglio}`;
+    ? `Ecco il tuo ordine ${cliente}:\n\n${dettaglio}`
+    : `Ecco il tuo ordine (cliente non specificato):\n\n${dettaglio}`;
 
   const url = "https://wa.me/393384461593?text=" + encodeURIComponent(messaggio);
   window.open(url, "_blank");
