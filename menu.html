@@ -15,12 +15,12 @@
       box-shadow: var(--shadow);
     }
     nav a {color:white; margin-right:20px; text-decoration:none; font-weight:bold;}
-    nav .cart {font-size:1.5em; cursor:pointer; position:relative;}
+    nav .cart {font-size:2.2em; cursor:pointer; position:relative;}
     nav .cart span {
       position:absolute; top:-8px; right:-10px;
       background:white; color:#d84315;
-      font-size:0.8em; font-weight:bold;
-      padding:2px 6px; border-radius:50%;
+      font-size:0.7em; font-weight:bold;
+      padding:2px 5px; border-radius:50%;
     }
 
     h1 {text-align:center; margin:20px; color:#d84315;}
@@ -40,13 +40,32 @@
       box-shadow:0 2px 6px rgba(0,0,0,0.15);
     }
     button:hover {background:#128C7E;}
+
+    /* Modal carrello */
+    .modal {
+      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.6); z-index:2000; justify-content:center; align-items:center;
+    }
+    .modal-content {
+      background:white; padding:20px; border-radius:10px;
+      max-width:600px; width:90%; max-height:80%; overflow-y:auto;
+      box-shadow:0 2px 10px rgba(0,0,0,0.3);
+    }
+    .modal h2 {margin-top:0; color:#d84315;}
+    .ordine-item {border-bottom:1px solid #ddd; padding:8px 0;}
+    .ordine-item span {display:block; margin-bottom:4px;}
+    .ordine-item button {
+      background:red; color:white; border:none; padding:5px 10px;
+      border-radius:5px; cursor:pointer; font-size:0.9em;
+    }
+    .close {float:right; font-size:1.5em; cursor:pointer; color:#333;}
   </style>
 </head>
 <body>
 
 <nav>
   <div><a href="index.html">Home</a> <a href="contatti.html">Contatti</a></div>
-  <div class="cart" onclick="inviaWhatsApp()">🛒<span id="cart-count">0</span></div>
+  <div class="cart" onclick="apriCarrello()">🛒<span id="cart-count">0</span></div>
 </nav>
 
 <h1>Menu Panini</h1>
@@ -62,12 +81,8 @@
   <h3>Panino con carne di cavallo</h3>
   <p>Base: carne di cavallo, cipolla</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Cipolla fresca</option><option>Cipolla caramellata</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Cipolla fresca</option><option>Cipolla caramellata</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
   <label><input type="checkbox" value="Funghi piccanti" class="extra"> Funghi piccanti</label>
@@ -83,12 +98,8 @@
   <h3>Panino con bresaola</h3>
   <p>Base: bresaola, rucola, parmigiano</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Parmigiano a scaglie</option><option>Grana Padano</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Parmigiano a scaglie</option><option>Grana Padano</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
   <label><input type="checkbox" value="Mozzarella" class="extra"> Mozzarella</label>
@@ -103,12 +114,8 @@
   <h3>Panino con porchetta</h3>
   <p>Base: porchetta</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Semplice</option><option>Speziata</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Semplice</option><option>Speziata</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
   <label><input type="checkbox" value="Peperoni" class="extra"> Peperoni</label>
@@ -123,12 +130,8 @@
   <h3>Panino con mortadella</h3>
   <p>Base: mortadella</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Classica</option><option>Con pistacchi</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Classica</option><option>Con pistacchi</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
   <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
@@ -142,12 +145,8 @@
   <h3>Panino con prosciutto crudo</h3>
   <p>Base: prosciutto crudo</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Dolce</option><option>Stagionato</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Dolce</option><option>Stagionato</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Mozzarella" class="extra"> Mozzarella</label>
   <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
@@ -162,12 +161,8 @@
   <h3>Panino con prosciutto cotto</h3>
   <p>Base: prosciutto cotto</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Alta qualità</option><option>Affumicato</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Alta qualità</option><option>Affumicato</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
   <label><input type="checkbox" value="Maionese" class="extra"> Maionese</label>
@@ -181,12 +176,8 @@
   <h3>Panino con salame</h3>
   <p>Base: salame</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Milano</option><option>Ungherese</option><option>Napoli</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Milano</option><option>Ungherese</option><option>Napoli</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
   <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
@@ -201,12 +192,8 @@
   <h3>Panino con pancetta</h3>
   <p>Base: pancetta</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Arrostita</option><option>Affumicata</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Arrostita</option><option>Affumicata</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
   <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
@@ -221,12 +208,8 @@
   <h3>Panino caprese</h3>
   <p>Base: mozzarella, pomodoro, basilico</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-  <label>Tipo pane:
-    <select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select>
-  </label>
-  <label>Variante:
-    <select class="variante"><option>Mozzarella fiordilatte</option><option>Bufala DOP</option></select>
-  </label>
+  <label>Tipo pane:<select class="pane"><option>Ciabatta croccante</option><option>Morbido</option></select></label>
+  <label>Variante:<select class="variante"><option>Mozzarella fiordilatte</option><option>Bufala DOP</option></select></label>
   <strong>Extra:</strong>
   <label><input type="checkbox" value="Origano" class="extra"> Origano</label>
   <label><input type="checkbox" value="Olio extravergine" class="extra"> Olio extravergine</label>
@@ -237,7 +220,19 @@
 </div>
 
 <div class="controls">
-  <button onclick="inviaWhatsApp()">📲 Invia ordine su WhatsApp</button>
+  <button onclick="apriCarrello()">🛒 Vedi carrello</button>
+</div>
+
+<!-- Modal carrello -->
+<div class="modal" id="modal-carrello">
+  <div class="modal-content">
+    <span class="close" onclick="chiudiCarrello()">&times;</span>
+    <h2>Il tuo ordine</h2>
+    <div id="riepilogo"></div>
+    <div style="text-align:center; margin-top:15px;">
+      <button onclick="inviaWhatsApp()">📲 Invia su WhatsApp</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -251,6 +246,53 @@ function aggiornaCarrello(){
     }
   });
   document.getElementById("cart-count").textContent = count;
+}
+
+function apriCarrello() {
+  const modal = document.getElementById("modal-carrello");
+  const riepilogoDiv = document.getElementById("riepilogo");
+  riepilogoDiv.innerHTML = "";
+
+  const panini = document.querySelectorAll(".panino");
+  let i = 0;
+  panini.forEach((p) => {
+    if (!p.querySelector(".attivo").checked) return;
+
+    const base = p.dataset.base;
+    const quantita = p.querySelector(".quantita").value;
+    const pane = p.querySelector(".pane").value;
+    const variante = p.querySelector(".variante") ? p.querySelector(".variante").value : "";
+    const ingr = [...p.querySelectorAll(".extra:checked")].map(x => x.value);
+    const note = p.querySelector("textarea").value.trim();
+
+    let descr = `${quantita}x ${base}`;
+    if (variante) descr += ` (${variante})`;
+    descr += ` - ${pane}`;
+    if (ingr.length > 0) descr += ` + ${ingr.join(", ")}`;
+    if (note) descr += ` | Note: ${note}`;
+
+    const div = document.createElement("div");
+    div.className = "ordine-item";
+    div.innerHTML = `<span>${descr}</span><button onclick="rimuoviPanino(${i})">❌ Rimuovi</button>`;
+    riepilogoDiv.appendChild(div);
+
+    i++;
+  });
+
+  modal.style.display = "flex";
+}
+
+function chiudiCarrello() {
+  document.getElementById("modal-carrello").style.display = "none";
+}
+
+function rimuoviPanino(index) {
+  const panini = Array.from(document.querySelectorAll(".panino")).filter(p => p.querySelector(".attivo").checked);
+  if (panini[index]) {
+    panini[index].querySelector(".attivo").checked = false;
+    aggiornaCarrello();
+    apriCarrello();
+  }
 }
 
 function inviaWhatsApp() {
@@ -279,7 +321,7 @@ function inviaWhatsApp() {
   });
 
   if (count === 0) {
-    alert("Seleziona almeno un panino da ordinare");
+    alert("Carrello vuoto");
     return;
   }
 
