@@ -60,6 +60,7 @@
       border-radius:5px; cursor:pointer; font-size:0.9em;
     }
     .close {float:right; font-size:1.5em; cursor:pointer; color:#333;}
+    .totale {margin-top:15px; font-weight:bold; text-align:right; color:#d84315;}
   </style>
 </head>
 <body>
@@ -78,7 +79,7 @@
 
 <!-- Carne di cavallo -->
 <div class="box panino" data-base="Carne di cavallo">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino con carne di cavallo</h3>
   <p>Base: carne di cavallo, cipolla</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -95,7 +96,7 @@
 
 <!-- Bresaola -->
 <div class="box panino" data-base="Bresaola">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino con bresaola</h3>
   <p>Base: bresaola, rucola, parmigiano</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -111,7 +112,7 @@
 
 <!-- Porchetta -->
 <div class="box panino" data-base="Porchetta">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino con porchetta</h3>
   <p>Base: porchetta</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -127,7 +128,7 @@
 
 <!-- Mortadella -->
 <div class="box panino" data-base="Mortadella">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino con mortadella</h3>
   <p>Base: mortadella</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -140,9 +141,9 @@
   <textarea placeholder="Note extra..."></textarea>
 </div>
 
-<!-- Crudo -->
+<!-- Prosciutto crudo -->
 <div class="box panino" data-base="Prosciutto crudo">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino con prosciutto crudo</h3>
   <p>Base: prosciutto crudo</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -156,9 +157,9 @@
   <textarea placeholder="Note extra..."></textarea>
 </div>
 
-<!-- Cotto -->
+<!-- Prosciutto cotto -->
 <div class="box panino" data-base="Prosciutto cotto">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino con prosciutto cotto</h3>
   <p>Base: prosciutto cotto</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -173,7 +174,7 @@
 
 <!-- Salame -->
 <div class="box panino" data-base="Salame">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino con salame</h3>
   <p>Base: salame</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -189,7 +190,7 @@
 
 <!-- Pancetta -->
 <div class="box panino" data-base="Pancetta">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino con pancetta</h3>
   <p>Base: pancetta</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -205,7 +206,7 @@
 
 <!-- Caprese -->
 <div class="box panino" data-base="Caprese">
-  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona questo panino</label>
+  <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
   <h3>Panino caprese</h3>
   <p>Base: mozzarella, pomodoro, basilico</p>
   <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
@@ -230,132 +231,84 @@
     <span class="close" onclick="chiudiCarrello()">&times;</span>
     <h2>Il tuo ordine</h2>
     <div id="riepilogo"></div>
+    <div class="totale" id="totale"></div>
     <div style="text-align:center; margin-top:15px;">
       <button onclick="inviaWhatsApp()">📲 Invia su WhatsApp</button>
+      <button style="background:#d84315; margin-left:10px;" onclick="svuotaCarrello()">🗑️ Svuota carrello</button>
     </div>
   </div>
 </div>
 
 <script>
 function aggiornaCarrello(){
-  const panini = document.querySelectorAll(".panino");
-  let count = 0;
-  panini.forEach(p => {
-    if (p.querySelector(".attivo").checked) {
-      const q = parseInt(p.querySelector(".quantita").value) || 0;
-      count += q;
+  let count=0;
+  document.querySelectorAll(".panino").forEach(p=>{
+    if(p.querySelector(".attivo").checked){
+      count+=parseInt(p.querySelector(".quantita").value)||0;
     }
   });
-  document.getElementById("cart-count").textContent = count;
+  document.getElementById("cart-count").textContent=count;
 }
 
-function apriCarrello() {
-  const modal = document.getElementById("modal-carrello");
-  const riepilogoDiv = document.getElementById("riepilogo");
-  riepilogoDiv.innerHTML = "";
-
-  const cliente = document.getElementById("cliente").value.trim();
-  const titolo = cliente
-    ? `<h3>Ecco il tuo ordine ${cliente}:</h3>`
-    : `<h3>Ecco il tuo ordine (cliente non specificato):</h3>`;
-  riepilogoDiv.innerHTML += titolo;
-
-  const panini = document.querySelectorAll(".panino");
-  let i = 0;
-  panini.forEach((p) => {
-    if (!p.querySelector(".attivo").checked) return;
-
-    const base = p.dataset.base;
-    const quantita = p.querySelector(".quantita").value;
-    const pane = p.querySelector(".pane").value;
-    const variante = p.querySelector(".variante") ? p.querySelector(".variante").value : "";
-    const ingr = [...p.querySelectorAll(".extra:checked")].map(x => x.value);
-    const note = p.querySelector("textarea").value.trim();
-
-    let descr = `${base}`;
-    if (variante) descr += ` (${variante})`;
-    descr += ` - ${pane}`;
-    if (ingr.length > 0) descr += ` + ${ingr.join(", ")}`;
-    if (note) descr += ` | Note: ${note}`;
-
-    const div = document.createElement("div");
-    div.className = "ordine-item";
-    div.innerHTML = `
-      <span>${quantita}x ${descr}</span>
-      <label>
-        Quantità: 
-        <input type="number" min="1" value="${quantita}" onchange="modificaQuantita(${i}, this.value)">
-      </label>
-      <button onclick="rimuoviPanino(${i})">❌ Rimuovi</button>
-    `;
-    riepilogoDiv.appendChild(div);
-
-    i++;
+function apriCarrello(){
+  const riepilogoDiv=document.getElementById("riepilogo");
+  const totaleDiv=document.getElementById("totale");
+  riepilogoDiv.innerHTML=""; totaleDiv.innerHTML="";
+  const cliente=document.getElementById("cliente").value.trim();
+  riepilogoDiv.innerHTML+=cliente?`<h3>Ecco il tuo ordine ${cliente}:</h3>`:`<h3>Ecco il tuo ordine (cliente non specificato):</h3>`;
+  let i=0,tot=0;
+  document.querySelectorAll(".panino").forEach(p=>{
+    if(!p.querySelector(".attivo").checked)return;
+    const base=p.dataset.base;
+    const q=parseInt(p.querySelector(".quantita").value);
+    const pane=p.querySelector(".pane").value;
+    const variante=p.querySelector(".variante")?.value||"";
+    const ingr=[...p.querySelectorAll(".extra:checked")].map(x=>x.value);
+    const note=p.querySelector("textarea").value.trim();
+    const labelQ=q===1?"panino":"panini"; tot+=q;
+    let descr=`${base}`; if(variante)descr+=` (${variante})`; descr+=` - ${pane}`;
+    if(ingr.length)descr+=` + ${ingr.join(", ")}`; if(note)descr+=` | Note: ${note}`;
+    const div=document.createElement("div");
+    div.className="ordine-item";
+    div.innerHTML=`<span>${q} ${labelQ} ${descr}</span>
+      <label>Quantità: <input type="number" min="1" value="${q}" onchange="modificaQuantita(${i}, this.value)"></label>
+      <button onclick="rimuoviPanino(${i})">❌ Rimuovi</button>`;
+    riepilogoDiv.appendChild(div); i++;
   });
-
-  modal.style.display = "flex";
-}
-
-function chiudiCarrello() {
-  document.getElementById("modal-carrello").style.display = "none";
-}
-
-function modificaQuantita(index, nuovaQ) {
-  const panini = Array.from(document.querySelectorAll(".panino"))
-    .filter(p => p.querySelector(".attivo").checked);
-  if (panini[index]) {
-    panini[index].querySelector(".quantita").value = nuovaQ;
-    aggiornaCarrello();
-    apriCarrello();
+  if(tot>0){
+    const labelTot=tot===1?"panino":"panini";
+    totaleDiv.innerHTML=`Totale: ${tot} ${labelTot}`;
   }
+  document.getElementById("modal-carrello").style.display="flex";
 }
 
-function rimuoviPanino(index) {
-  const panini = Array.from(document.querySelectorAll(".panino"))
-    .filter(p => p.querySelector(".attivo").checked);
-  if (panini[index]) {
-    panini[index].querySelector(".attivo").checked = false;
-    aggiornaCarrello();
-    apriCarrello();
-  }
-}
+function chiudiCarrello(){document.getElementById("modal-carrello").style.display="none";}
+function modificaQuantita(i,v){const ps=[...document.querySelectorAll(".panino")].filter(p=>p.querySelector(".attivo").checked);if(ps[i]){ps[i].querySelector(".quantita").value=v;aggiornaCarrello();apriCarrello();}}
+function rimuoviPanino(i){const ps=[...document.querySelectorAll(".panino")].filter(p=>p.querySelector(".attivo").checked);if(ps[i]){ps[i].querySelector(".attivo").checked=false;aggiornaCarrello();apriCarrello();}}
+function svuotaCarrello(){document.querySelectorAll(".panino .attivo").forEach(c=>c.checked=false);aggiornaCarrello();apriCarrello();}
 
-function inviaWhatsApp() {
-  const cliente = document.getElementById("cliente").value.trim();
-  const panini = document.querySelectorAll(".panino");
-  let dettaglio = "";
-  let count = 0;
-
-  panini.forEach((p) => {
-    if (!p.querySelector(".attivo").checked) return;
-
-    const base = p.dataset.base;
-    const quantita = p.querySelector(".quantita").value;
-    const pane = p.querySelector(".pane").value;
-    const variante = p.querySelector(".variante") ? p.querySelector(".variante").value : "";
-    const ingr = [...p.querySelectorAll(".extra:checked")].map(x => x.value);
-    const note = p.querySelector("textarea").value.trim();
-
-    count++;
-    let riga = `${quantita}x ${base}`;
-    if (variante) riga += ` (${variante})`;
-    riga += ` - ${pane}`;
-    if (ingr.length > 0) riga += ` + ${ingr.join(", ")}`;
-    if (note) riga += ` | Note: ${note}`;
-    dettaglio += riga + "\n";
+function inviaWhatsApp(){
+  const cliente=document.getElementById("cliente").value.trim();
+  let dettaglio="",tot=0;
+  document.querySelectorAll(".panino").forEach(p=>{
+    if(!p.querySelector(".attivo").checked)return;
+    const base=p.dataset.base;
+    const q=parseInt(p.querySelector(".quantita").value);
+    const pane=p.querySelector(".pane").value;
+    const variante=p.querySelector(".variante")?.value||"";
+    const ingr=[...p.querySelectorAll(".extra:checked")].map(x=>x.value);
+    const note=p.querySelector("textarea").value.trim();
+    const labelQ=q===1?"panino":"panini"; tot+=q;
+    let r=`${q} ${labelQ} ${base}`;
+    if(variante)r+=` (${variante})`; r+=` - ${pane}`;
+    if(ingr.length)r+=` + ${ingr.join(", ")}`; if(note)r+=` | Note: ${note}`;
+    dettaglio+=r+"\n";
   });
-
-  if (count === 0) {
-    alert("Carrello vuoto");
-    return;
-  }
-
-  let messaggio = cliente
-    ? `Ecco il tuo ordine ${cliente}:\n\n${dettaglio}`
-    : `Ecco il tuo ordine (cliente non specificato):\n\n${dettaglio}`;
-
-  const url = "https://wa.me/393384461593?text=" + encodeURIComponent(messaggio);
-  window.open(url, "_blank");
+  if(!tot){alert("Carrello vuoto");return;}
+  const labelTot=tot===1?"panino":"panini";
+  dettaglio+=`\nTotale: ${tot} ${labelTot}`;
+  const msg=cliente?`Ecco il tuo ordine ${cliente}:\n\n${dettaglio}`:`Ecco il tuo ordine (cliente non specificato):\n\n${dettaglio}`;
+  window.open("https://wa.me/393384461593?text="+encodeURIComponent(msg),"_blank");
 }
 </script>
 
