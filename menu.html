@@ -254,6 +254,12 @@ function apriCarrello() {
   const riepilogoDiv = document.getElementById("riepilogo");
   riepilogoDiv.innerHTML = "";
 
+  const cliente = document.getElementById("cliente").value.trim();
+  const titolo = cliente
+    ? `<h3>Ecco il tuo ordine ${cliente}:</h3>`
+    : `<h3>Ecco il tuo ordine (cliente non specificato):</h3>`;
+  riepilogoDiv.innerHTML += titolo;
+
   const panini = document.querySelectorAll(".panino");
   let i = 0;
   panini.forEach((p) => {
@@ -275,7 +281,7 @@ function apriCarrello() {
     const div = document.createElement("div");
     div.className = "ordine-item";
     div.innerHTML = `
-      <span>${descr}</span>
+      <span>${quantita}x ${descr}</span>
       <label>
         Quantità: 
         <input type="number" min="1" value="${quantita}" onchange="modificaQuantita(${i}, this.value)">
