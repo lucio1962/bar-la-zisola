@@ -33,14 +33,31 @@
       font-size: 1.2em;
       opacity: 0.95;
     }
-    header .phone {
+    header .contacts {
       margin-top: 8px;
-      font-size: 1.1em;
+      font-size: 1.2em;
       font-weight: bold;
+    }
+    header .contacts a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header .contacts a.tel {
+      color: #ffeb3b;  /* giallo telefono */
+    }
+    header .contacts a.tel:hover {
+      color: #fff176;
+    }
+    header .contacts a.whatsapp {
+      color: #25D366; /* verde WhatsApp */
+    }
+    header .contacts a.whatsapp:hover {
+      color: #128C7E;
     }
 
     main {
-      margin-top: 170px;
+      margin-top: 190px;
       padding: 20px;
     }
 
@@ -119,6 +136,23 @@
       padding: 20px;
       font-size: 0.95em;
     }
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer a.tel {
+      color: #ffeb3b;
+    }
+    footer a.tel:hover {
+      color: #fff176;
+    }
+    footer a.whatsapp {
+      color: #25D366;
+    }
+    footer a.whatsapp:hover {
+      color: #128C7E;
+    }
   </style>
 </head>
 <body>
@@ -126,7 +160,10 @@
 <header>
   <h1>Bar La Zisola</h1>
   <p>Strada Statale 115, Noto (SR)</p>
-  <div class="phone">📞 0931 837682</div>
+  <div class="contacts">
+    <a class="tel" href="tel:0931837682">☎️ 0931 837682</a>
+    <a class="whatsapp" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">💬 WhatsApp</a>
+  </div>
 </header>
 
 <main>
@@ -176,14 +213,16 @@
   </div>
 
   <div style="text-align:center;">
-    <a class="btn" href="https://wa.me/39XXXXXXXXXX?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">
+    <a class="btn" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">
       📲 Ordina su WhatsApp
     </a>
   </div>
 </main>
 
 <footer>
-  © 2025 Bar La Zisola - Strada Statale 115, Noto (SR) • 📞 0931 837682
+  © 2025 Bar La Zisola - Strada Statale 115, Noto (SR) • 
+  <a class="tel" href="tel:0931837682">☎️ 0931 837682</a> • 
+  <a class="whatsapp" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">💬 WhatsApp</a>
 </footer>
 
 </body>
