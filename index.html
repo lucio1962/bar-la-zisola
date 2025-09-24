@@ -5,34 +5,41 @@
   <title>Bar La Zisola - Ordini Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {font-family: 'Segoe UI', Tahoma, sans-serif; background:#fdfdfd; margin:0;}
+    body {font-family:'Segoe UI', Tahoma, sans-serif; background:#fdfdfd; margin:0;}
     header {
       background: linear-gradient(135deg,#ff7043,#d84315);
       color:white; text-align:center; padding:20px;
       position:fixed; top:0; width:100%; z-index:1000;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
     }
-    main {margin-top:160px; padding:20px;}
+    main {margin-top:170px; padding:20px;}
     h1 {margin:0; font-size:2.5em;}
     h2 {color:#d84315; margin-top:30px;}
     .intro {
       background:#eee; padding:20px; border-radius:12px;
       max-width:800px; margin:auto; margin-bottom:30px;
     }
-    .ordine {
-      max-width:600px; margin:auto; background:#fff; padding:20px;
-      border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    #panini {max-width:700px; margin:auto;}
+    .panino {
+      background:#fff; border-radius:10px; padding:15px; margin:15px 0;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
     }
-    .ordine label {display:block; margin:6px 0;}
-    .ordine input[type="number"], .ordine select, .ordine textarea {
-      width:100%; padding:8px; margin:6px 0 15px 0; border-radius:6px; border:1px solid #ccc;
+    .panino h3 {margin:0 0 10px 0; color:#d84315;}
+    .panino label {display:inline-block; margin:4px 8px;}
+    .panino select, .panino textarea {
+      width:100%; padding:6px; margin:8px 0; border:1px solid #ccc; border-radius:6px;
     }
-    .ordine button {
-      display:block; margin:20px auto; padding:12px 25px;
-      background:#25D366; color:white; font-size:1.2em;
-      border:none; border-radius:8px; cursor:pointer; font-weight:bold;
+    .panino textarea {resize:vertical;}
+    .controls {text-align:center; margin:20px;}
+    button {
+      background:#25D366; color:white; border:none; padding:12px 25px;
+      border-radius:8px; font-size:1.1em; font-weight:bold; cursor:pointer;
+      margin:5px;
     }
-    .ordine button:hover {background:#128C7E;}
-    footer {background:#d84315; color:white; text-align:center; padding:15px; margin-top:40px;}
+    button:hover {background:#128C7E;}
+    footer {
+      background:#d84315; color:white; text-align:center; padding:15px; margin-top:40px;
+    }
   </style>
 </head>
 <body>
@@ -48,56 +55,13 @@
     per camionisti, lavoratori e viaggiatori. Qui puoi comporre e inviare il tuo ordine via WhatsApp.</p>
   </div>
 
-  <h2>Ordina il tuo pasto</h2>
-  <form id="ordineForm" class="ordine">
+  <h2>Componi i tuoi panini</h2>
+  <div id="panini"></div>
 
-    <label>Quanti panini?</label>
-    <input type="number" id="qtaPanini" min="1" value="1">
-
-    <label>Scegli ingredienti panino:</label>
-    <label><input type="checkbox" name="ingrediente" value="Salame"> Salame</label>
-    <label><input type="checkbox" name="ingrediente" value="Prosciutto crudo"> Prosciutto crudo</label>
-    <label><input type="checkbox" name="ingrediente" value="Prosciutto cotto"> Prosciutto cotto</label>
-    <label><input type="checkbox" name="ingrediente" value="Mortadella"> Mortadella</label>
-    <label><input type="checkbox" name="ingrediente" value="Pancetta"> Pancetta</label>
-    <label><input type="checkbox" name="ingrediente" value="Bresaola"> Bresaola</label>
-    <label><input type="checkbox" name="ingrediente" value="Porchetta"> Porchetta</label>
-    <label><input type="checkbox" name="ingrediente" value="Carne di cavallo"> Carne di cavallo</label>
-    <label><input type="checkbox" name="ingrediente" value="Salsiccia e funghi piccanti"> Salsiccia e funghi piccanti</label>
-    <label><input type="checkbox" name="ingrediente" value="Rucola"> Rucola</label>
-    <label><input type="checkbox" name="ingrediente" value="Pomodoro"> Pomodoro</label>
-    <label><input type="checkbox" name="ingrediente" value="Mozzarella"> Mozzarella</label>
-    <label><input type="checkbox" name="ingrediente" value="Patatine fritte"> Patatine fritte</label>
-
-    <label>Scegli un primo:</label>
-    <select id="primo">
-      <option value="">-- Nessuno --</option>
-      <option>Pasta al pomodoro</option>
-      <option>Pasta al ragù</option>
-      <option>Lasagne</option>
-    </select>
-
-    <label>Scegli un secondo:</label>
-    <select id="secondo">
-      <option value="">-- Nessuno --</option>
-      <option>Pollo alla griglia</option>
-      <option>Salsiccia</option>
-      <option>Carne di cavallo</option>
-    </select>
-
-    <label>Scegli un contorno:</label>
-    <select id="contorno">
-      <option value="">-- Nessuno --</option>
-      <option>Patatine fritte</option>
-      <option>Insalata</option>
-      <option>Verdure grigliate</option>
-    </select>
-
-    <label>Note aggiuntive:</label>
-    <textarea id="note" rows="3" placeholder="Esempio: senza sale, aggiungi maionese..."></textarea>
-
+  <div class="controls">
+    <button type="button" onclick="aggiungiPanino()">➕ Aggiungi panino</button>
     <button type="button" onclick="inviaWhatsApp()">📲 Invia ordine su WhatsApp</button>
-  </form>
+  </div>
 </main>
 
 <footer>
@@ -105,30 +69,57 @@
 </footer>
 
 <script>
+let count = 0;
+
+const ingredienti = [
+  "Salame","Prosciutto crudo","Prosciutto cotto","Mortadella","Pancetta","Bresaola","Porchetta","Carne di cavallo",
+  "Salsiccia e funghi piccanti","Rucola","Pomodoro","Mozzarella","Fontina","Svizzero","Provola","Scamorza affumicata",
+  "Parmigiano a scaglie","Funghi piccanti","Insalata","Cipolla","Peperoni","Melanzane grigliate","Zucchine grigliate",
+  "Maionese","Ketchup","Senape","Patatine fritte"
+];
+
+function aggiungiPanino() {
+  count++;
+  const div = document.createElement("div");
+  div.className = "panino";
+  div.innerHTML = `
+    <h3>Panino ${count}</h3>
+    <label>Tipo pane:
+      <select name="pane">
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <div class="scelte">
+      ${ingredienti.map(i => `<label><input type="checkbox" value="${i}"> ${i}</label>`).join("")}
+    </div>
+    <textarea placeholder="Note extra (es. senza sale, aggiungi maionese...)"></textarea>
+  `;
+  document.getElementById("panini").appendChild(div);
+}
+
 function inviaWhatsApp() {
-  const qta = document.getElementById("qtaPanini").value;
-  const ingredienti = [...document.querySelectorAll('input[name="ingrediente"]:checked')]
-    .map(cb => cb.value);
-  const primo = document.getElementById("primo").value;
-  const secondo = document.getElementById("secondo").value;
-  const contorno = document.getElementById("contorno").value;
-  const note = document.getElementById("note").value;
-
-  let messaggio = "Ordine dal sito Bar La Zisola:\n";
-  messaggio += qta + " panino/i";
-  if (ingredienti.length > 0) {
-    messaggio += " con " + ingredienti.join(", ");
+  const panini = document.querySelectorAll(".panino");
+  if (panini.length === 0) {
+    alert("Aggiungi almeno un panino");
+    return;
   }
-  messaggio += "\n";
-
-  if (primo) messaggio += "Primo: " + primo + "\n";
-  if (secondo) messaggio += "Secondo: " + secondo + "\n";
-  if (contorno) messaggio += "Contorno: " + contorno + "\n";
-  if (note) messaggio += "Note: " + note + "\n";
-
+  let messaggio = "Ordine Bar La Zisola:\n";
+  panini.forEach((p, i) => {
+    const pane = p.querySelector("select").value;
+    const ingr = [...p.querySelectorAll("input[type=checkbox]:checked")].map(x => x.value);
+    const note = p.querySelector("textarea").value;
+    messaggio += `Panino ${i+1}: ${pane}`;
+    if (ingr.length > 0) messaggio += " con " + ingr.join(", ");
+    if (note) messaggio += " | Note: " + note;
+    messaggio += "\n";
+  });
   const url = "https://wa.me/393384461593?text=" + encodeURIComponent(messaggio);
   window.open(url, "_blank");
 }
+
+// aggiungo il primo panino già visibile
+aggiungiPanino();
 </script>
 
 </body>
