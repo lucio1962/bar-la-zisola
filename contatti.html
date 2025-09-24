@@ -2,18 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Bar La Zisola - Menu</title>
+  <title>Bar La Zisola - Contatti</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {font-family: Arial, sans-serif; margin:0; background:#fdfdfd;}
+    body {font-family: Arial, sans-serif; margin:0; background:#fdfdfd; text-align:center;}
     nav {background:linear-gradient(135deg,#ff7043,#d84315); color:white; padding:15px;}
     nav a {color:white; margin:0 15px; text-decoration:none; font-weight:bold;}
-    h1 {text-align:center; margin:20px; color:#d84315;}
-    .box {background:#fff; border-radius:10px; padding:15px; margin:15px auto; max-width:700px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-    .panino h3 {margin:0 0 6px 0; color:#d84315;}
-    .controls {text-align:center; margin:24px;}
-    button {background:#25D366; color:white; border:none; padding:12px 25px; border-radius:8px; font-size:1.1em; cursor:pointer;}
-    button:hover {background:#128C7E;}
+    h1 {margin-top:50px; color:#d84315;}
+    p {font-size:1.2em; margin:10px;}
+    a.btn {display:inline-block; margin:20px; padding:15px 25px; background:#25D366; color:white; border-radius:8px; text-decoration:none; font-weight:bold;}
   </style>
 </head>
 <body>
@@ -24,31 +21,10 @@
   <a href="contatti.html">Contatti</a>
 </nav>
 
-<h1>Menu Panini</h1>
-
-<div class="box panino" data-base="Carne di cavallo">
-  <h3>Panino con carne di cavallo</h3>
-  <p>Base: carne di cavallo, cipolla</p>
-</div>
-
-<div class="box panino" data-base="Bresaola">
-  <h3>Panino con bresaola</h3>
-  <p>Base: bresaola, rucola, parmigiano</p>
-</div>
-
-<!-- Altri panini come prima -->
-
-<div class="controls">
-  <button onclick="inviaWhatsApp()">📲 Ordina su WhatsApp</button>
-</div>
-
-<script>
-function inviaWhatsApp() {
-  const messaggio = "Vorrei ordinare dal Bar La Zisola.";
-  const url = "https://wa.me/393384461593?text=" + encodeURIComponent(messaggio);
-  window.open(url, "_blank");
-}
-</script>
+<h1>Contatti</h1>
+<p>📍 Strada Statale 115, Noto (SR)</p>
+<p>☎️ 0931 837682</p>
+<p><a href="https://wa.me/393384461593" target="_blank" class="btn">📲 Scrivici su WhatsApp</a></p>
 
 </body>
 </html>
