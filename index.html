@@ -39,9 +39,12 @@
       font-weight: bold;
     }
     header .contacts a {
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     header .contacts a.tel {
       color: #ffeb3b;  /* giallo telefono */
@@ -50,7 +53,11 @@
       color: #fff176;
     }
     header .contacts a.whatsapp {
-      color: #25D366; /* verde WhatsApp */
+      color: #25D366;
+    }
+    header .contacts a.whatsapp img {
+      width: 22px;
+      height: 22px;
     }
     header .contacts a.whatsapp:hover {
       color: #128C7E;
@@ -137,9 +144,12 @@
       font-size: 0.95em;
     }
     footer a {
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     footer a.tel {
       color: #ffeb3b;
@@ -149,6 +159,10 @@
     }
     footer a.whatsapp {
       color: #25D366;
+    }
+    footer a.whatsapp img {
+      width: 20px;
+      height: 20px;
     }
     footer a.whatsapp:hover {
       color: #128C7E;
@@ -162,14 +176,16 @@
   <p>Strada Statale 115, Noto (SR)</p>
   <div class="contacts">
     <a class="tel" href="tel:0931837682">☎️ 0931 837682</a>
-    <a class="whatsapp" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">💬 WhatsApp</a>
+    <a class="whatsapp" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">
+      <img src="images/whatsapp.png" alt="WhatsApp"> WhatsApp
+    </a>
   </div>
 </header>
 
 <main>
   <div class="intro">
     <p>
-      Da tanti anni il nostro Ciccio prepara con passione panini unici e genuini, 
+      Da tanti anni <strong>Ciccio del Bar La Zisola</strong> prepara con passione panini unici e genuini, 
       deliziando camionisti, lavoratori e viaggiatori di passaggio con ricette sempre abbondanti e gustose. 
       Ingredienti freschi, pane croccante dei forni siciliani e tanta esperienza fanno del 
       <strong>Bar La Zisola di Noto (SR)</strong> un punto di riferimento sulla Strada Statale 115.
@@ -222,7 +238,9 @@
 <footer>
   © 2025 Bar La Zisola - Strada Statale 115, Noto (SR) • 
   <a class="tel" href="tel:0931837682">☎️ 0931 837682</a> • 
-  <a class="whatsapp" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">💬 WhatsApp</a>
+  <a class="whatsapp" href="https://wa.me/393384461593?text=Ciao%20vorrei%20ordinare%20da%20Bar%20La%20Zisola" target="_blank">
+    <img src="images/whatsapp.png" alt="WhatsApp"> WhatsApp
+  </a>
 </footer>
 
 </body>
