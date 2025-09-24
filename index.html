@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Bar La Zisola - Ordini Online</title>
+  <title>Bar La Zisola - Panini Standard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {font-family:'Segoe UI', Tahoma, sans-serif; background:#fdfdfd; margin:0;}
@@ -13,28 +13,23 @@
       box-shadow:0 2px 6px rgba(0,0,0,0.3);
     }
     main {margin-top:170px; padding:20px;}
-    h1 {margin:0; font-size:2.5em;}
+    h1 {margin:0; font-size:2.2em;}
     h2 {color:#d84315; margin-top:30px;}
-    .intro {
-      background:#eee; padding:20px; border-radius:12px;
-      max-width:800px; margin:auto; margin-bottom:30px;
-    }
-    #panini {max-width:700px; margin:auto;}
     .panino {
-      background:#fff; border-radius:10px; padding:15px; margin:15px 0;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      background:#fff; border-radius:10px; padding:15px; margin:15px auto;
+      max-width:700px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
     }
-    .panino h3 {margin:0 0 10px 0; color:#d84315;}
-    .panino label {display:inline-block; margin:4px 8px;}
+    .panino h3 {margin:0 0 6px 0; color:#d84315;}
+    .panino p {margin:0 0 10px 0; font-style:italic; color:#555;}
+    .panino label {display:block; margin:4px 0;}
     .panino select, .panino textarea {
-      width:100%; padding:6px; margin:8px 0; border:1px solid #ccc; border-radius:6px;
+      width:100%; padding:6px; margin:6px 0; border:1px solid #ccc; border-radius:6px;
     }
     .panino textarea {resize:vertical;}
     .controls {text-align:center; margin:20px;}
     button {
       background:#25D366; color:white; border:none; padding:12px 25px;
       border-radius:8px; font-size:1.1em; font-weight:bold; cursor:pointer;
-      margin:5px;
     }
     button:hover {background:#128C7E;}
     footer {
@@ -50,16 +45,226 @@
 </header>
 
 <main>
-  <div class="intro">
-    <p><strong>Ciccio del Bar La Zisola</strong> prepara ogni giorno panini e piatti genuini 
-    per camionisti, lavoratori e viaggiatori. Qui puoi comporre e inviare il tuo ordine via WhatsApp.</p>
+  <h2>Panini standard con possibilità di personalizzazione</h2>
+
+  <!-- Carne di cavallo -->
+  <div class="panino" data-base="Carne di cavallo">
+    <h3>Panino con carne di cavallo</h3>
+    <p>Base: carne di cavallo, cipolla</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Cipolla fresca</option>
+        <option>Cipolla caramellata</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Formaggio"> Formaggio</label>
+    <label><input type="checkbox" value="Funghi piccanti"> Funghi piccanti</label>
+    <label><input type="checkbox" value="Rucola"> Rucola</label>
+    <label><input type="checkbox" value="Patatine"> Patatine</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
   </div>
 
-  <h2>Componi i tuoi panini</h2>
-  <div id="panini"></div>
+  <!-- Bresaola -->
+  <div class="panino" data-base="Bresaola">
+    <h3>Panino con bresaola</h3>
+    <p>Base: bresaola, rucola, parmigiano a scaglie</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Parmigiano a scaglie</option>
+        <option>Grana Padano</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
+    <label><input type="checkbox" value="Mozzarella"> Mozzarella</label>
+    <label><input type="checkbox" value="Funghi piccanti"> Funghi piccanti</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Porchetta -->
+  <div class="panino" data-base="Porchetta">
+    <h3>Panino con porchetta</h3>
+    <p>Base: porchetta, pane croccante</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Semplice</option>
+        <option>Speziata</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Cipolla"> Cipolla</label>
+    <label><input type="checkbox" value="Peperoni"> Peperoni</label>
+    <label><input type="checkbox" value="Patatine"> Patatine</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Mortadella -->
+  <div class="panino" data-base="Mortadella">
+    <h3>Panino con mortadella</h3>
+    <p>Base: mortadella, pane morbido</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Classica</option>
+        <option>Con pistacchi</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
+    <label><input type="checkbox" value="Formaggio"> Formaggio</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Prosciutto crudo -->
+  <div class="panino" data-base="Prosciutto crudo">
+    <h3>Panino con prosciutto crudo</h3>
+    <p>Base: prosciutto crudo, pane croccante</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Dolce</option>
+        <option>Stagionato</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Mozzarella"> Mozzarella</label>
+    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
+    <label><input type="checkbox" value="Insalata"> Insalata</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Prosciutto cotto -->
+  <div class="panino" data-base="Prosciutto cotto">
+    <h3>Panino con prosciutto cotto</h3>
+    <p>Base: prosciutto cotto, pane morbido</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Alta qualità</option>
+        <option>Affumicato</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Formaggio"> Formaggio</label>
+    <label><input type="checkbox" value="Maionese"> Maionese</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Salame -->
+  <div class="panino" data-base="Salame">
+    <h3>Panino con salame</h3>
+    <p>Base: pane croccante e salame</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Milano</option>
+        <option>Ungherese</option>
+        <option>Napoli</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Formaggio"> Formaggio</label>
+    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
+    <label><input type="checkbox" value="Rucola"> Rucola</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Pancetta -->
+  <div class="panino" data-base="Pancetta">
+    <h3>Panino con pancetta</h3>
+    <p>Base: pancetta arrostita, pane croccante</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Arrostita</option>
+        <option>Affumicata</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Pomodoro"> Pomodoro</label>
+    <label><input type="checkbox" value="Cipolla"> Cipolla</label>
+    <label><input type="checkbox" value="Patatine"> Patatine</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
+
+  <!-- Caprese -->
+  <div class="panino" data-base="Caprese">
+    <h3>Panino caprese</h3>
+    <p>Base: mozzarella, pomodoro, basilico</p>
+    <label>Tipo pane:
+      <select>
+        <option>Ciabatta croccante</option>
+        <option>Morbido</option>
+      </select>
+    </label>
+    <label>Variante:
+      <select class="variante">
+        <option>Mozzarella fiordilatte</option>
+        <option>Bufala DOP</option>
+      </select>
+    </label>
+    <strong>Extra:</strong>
+    <label><input type="checkbox" value="Origano"> Origano</label>
+    <label><input type="checkbox" value="Olio extravergine"> Olio extravergine</label>
+    <label><input type="checkbox" value="Rucola"> Rucola</label>
+    <label><input type="checkbox" value="Funghi piccanti"> Funghi piccanti</label>
+    <label><input type="checkbox" value="Riscaldato"> Riscaldato</label>
+    <textarea placeholder="Note extra..."></textarea>
+  </div>
 
   <div class="controls">
-    <button type="button" onclick="aggiungiPanino()">➕ Aggiungi panino</button>
     <button type="button" onclick="inviaWhatsApp()">📲 Invia ordine su WhatsApp</button>
   </div>
 </main>
@@ -69,57 +274,25 @@
 </footer>
 
 <script>
-let count = 0;
-
-const ingredienti = [
-  "Salame","Prosciutto crudo","Prosciutto cotto","Mortadella","Pancetta","Bresaola","Porchetta","Carne di cavallo",
-  "Salsiccia e funghi piccanti","Rucola","Pomodoro","Mozzarella","Fontina","Svizzero","Provola","Scamorza affumicata",
-  "Parmigiano a scaglie","Funghi piccanti","Insalata","Cipolla","Peperoni","Melanzane grigliate","Zucchine grigliate",
-  "Maionese","Ketchup","Senape","Patatine fritte"
-];
-
-function aggiungiPanino() {
-  count++;
-  const div = document.createElement("div");
-  div.className = "panino";
-  div.innerHTML = `
-    <h3>Panino ${count}</h3>
-    <label>Tipo pane:
-      <select name="pane">
-        <option>Ciabatta croccante</option>
-        <option>Morbido</option>
-      </select>
-    </label>
-    <div class="scelte">
-      ${ingredienti.map(i => `<label><input type="checkbox" value="${i}"> ${i}</label>`).join("")}
-    </div>
-    <textarea placeholder="Note extra (es. senza sale, aggiungi maionese...)"></textarea>
-  `;
-  document.getElementById("panini").appendChild(div);
-}
-
 function inviaWhatsApp() {
   const panini = document.querySelectorAll(".panino");
-  if (panini.length === 0) {
-    alert("Aggiungi almeno un panino");
-    return;
-  }
   let messaggio = "Ordine Bar La Zisola:\n";
   panini.forEach((p, i) => {
+    const base = p.dataset.base;
     const pane = p.querySelector("select").value;
+    const variante = p.querySelector(".variante") ? p.querySelector(".variante").value : "";
     const ingr = [...p.querySelectorAll("input[type=checkbox]:checked")].map(x => x.value);
     const note = p.querySelector("textarea").value;
-    messaggio += `Panino ${i+1}: ${pane}`;
-    if (ingr.length > 0) messaggio += " con " + ingr.join(", ");
+    messaggio += `Panino ${i+1}: ${base}`;
+    if (variante) messaggio += " (" + variante + ")";
+    messaggio += " - " + pane;
+    if (ingr.length > 0) messaggio += " + " + ingr.join(", ");
     if (note) messaggio += " | Note: " + note;
     messaggio += "\n";
   });
   const url = "https://wa.me/393384461593?text=" + encodeURIComponent(messaggio);
   window.open(url, "_blank");
 }
-
-// aggiungo il primo panino già visibile
-aggiungiPanino();
 </script>
 
 </body>
