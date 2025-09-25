@@ -49,7 +49,9 @@
     }
     .modal h2 {margin-top:0; color:#d84315;}
     .ordine-item {border-bottom:1px solid #ddd; padding:8px 0;}
-    .ordine-item span {display:block; margin-bottom:4px;}
+    .ordine-item span {display:block; margin-bottom:4px; line-height:1.4;}
+    .ordine-item strong {color:#d84315;}
+    .ordine-item u {color:#000;}
     .ordine-item input[type="number"] {width:60px; margin-right:10px;}
     .ordine-item button {
       background:red; color:white; border:none; padding:5px 10px;
@@ -258,11 +260,12 @@ function apriCarrello(){
           v=p.querySelector(".variante")?.value||"",ing=[...p.querySelectorAll(".extra:checked")].map(x=>x.value),
           n=p.querySelector("textarea").value.trim(),l=q===1?"panino":"panini";
     tot+=q;
-    let d=`${b}`; if(v)d+=` (${v})`; d+=` - ${pa}`;
-    if(ing.length)d+=` + ${ing.join(", ")}`; if(n)d+=` | Note: ${n}`;
+    let dettagli=`Tipo pane: ${pa}`; if(v) dettagli+=`<br>Variante: ${v}`;
+    if(ing.length) dettagli+=`<br>Extra: ${ing.join(", ")}`;
+    if(n) dettagli+=`<br>Note: ${n}`;
     const div=document.createElement("div");
     div.className="ordine-item";
-    div.innerHTML=`<span>${q} ${l} ${d}</span>
+    div.innerHTML=`<span><strong>${q} ${l}</strong> - <u>${b}</u><br>${dettagli}</span>
       <label>Quantità:<input type="number" min="1" value="${q}" onchange="modificaQuantita(${i}, this.value)"></label>
       <button onclick="rimuoviPanino(${i})">❌ Rimuovi</button>`;
     r.appendChild(div); i++;
@@ -286,13 +289,16 @@ function inviaWhatsApp(){
           v=p.querySelector(".variante")?.value||"",ing=[...p.querySelectorAll(".extra:checked")].map(x=>x.value),
           n=p.querySelector("textarea").value.trim(),l=q===1?"panino":"panini";
     tot+=q;
-    let r=`${q} ${l} ${b}`; if(v)r+=` (${v})`; r+=` - ${pa}`;
-    if(ing.length)r+=` + ${ing.join(", ")}`; if(n)r+=` | Note: ${n}`;
-    d+=r+"\n";
+    d+=`${q} ${l} - ${b}\n`;
+    d+=`  Pane: ${pa}\n`;
+    if(v) d+=`  Variante: ${v}\n`;
+    if(ing.length) d+=`  Extra: ${ing.join(", ")}\n`;
+    if(n) d+=`  Note: ${n}\n`;
+    d+="\n";
   });
   if(!tot){alert("Carrello vuoto");return;}
   const l=tot===1?"panino":"panini";
-  d+=`\nTotale: ${tot} ${l}`;
+  d+=`Totale: ${tot} ${l}`;
   const m=cl?`Ecco il tuo ordine ${cl} (${tel}):\n\n${d}`:`Ecco il tuo ordine (cliente non specificato):\n\n${d}`;
   window.open("https://wa.me/393384461593?text="+encodeURIComponent(m),"_blank");
 }
