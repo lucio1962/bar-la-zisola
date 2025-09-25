@@ -22,17 +22,15 @@
       font-size:0.7em; font-weight:bold;
       padding:2px 5px; border-radius:50%;
     }
-
     h1 {text-align:center; margin:20px; color:#d84315;}
     .box {background:#fff; border-radius:10px; padding:15px; margin:15px auto; max-width:700px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
     .panino h3 {margin:0 0 6px 0; color:#d84315;}
     .panino p {margin:0 0 10px 0; font-style:italic; color:#555;}
     .panino label {display:block; margin:4px 0;}
-    .panino select, .panino textarea, .panino input[type="number"], #cliente {
+    .panino select, .panino textarea, .panino input[type="number"], #cliente, #telefono {
       width:100%; padding:8px; margin:6px 0; border:1px solid #ccc; border-radius:6px;
     }
     .panino textarea {resize:vertical; min-height:60px;}
-
     .controls {text-align:center; margin:24px;}
     button {
       background:#25D366; color:white; border:none; padding:12px 25px;
@@ -40,8 +38,6 @@
       box-shadow:0 2px 6px rgba(0,0,0,0.15);
     }
     button:hover {background:#128C7E;}
-
-    /* Modal carrello */
     .modal {
       display:none; position:fixed; top:0; left:0; width:100%; height:100%;
       background:rgba(0,0,0,0.6); z-index:2000; justify-content:center; align-items:center;
@@ -75,6 +71,8 @@
 <div class="box">
   <label><strong>Il tuo nome:</strong></label>
   <input type="text" id="cliente" placeholder="Scrivi qui il tuo nome...">
+  <label><strong>Il tuo telefono:</strong></label>
+  <input type="text" id="telefono" placeholder="Scrivi qui il tuo numero...">
 </div>
 
 <!-- Carne di cavallo -->
@@ -225,7 +223,6 @@
   <button onclick="apriCarrello()">🛒 Vedi carrello</button>
 </div>
 
-<!-- Modal carrello -->
 <div class="modal" id="modal-carrello">
   <div class="modal-content">
     <span class="close" onclick="chiudiCarrello()">&times;</span>
@@ -241,44 +238,36 @@
 
 <script>
 function aggiornaCarrello(){
-  let count=0;
+  let c=0;
   document.querySelectorAll(".panino").forEach(p=>{
-    if(p.querySelector(".attivo").checked){
-      count+=parseInt(p.querySelector(".quantita").value)||0;
-    }
+    if(p.querySelector(".attivo").checked) c+=parseInt(p.querySelector(".quantita").value)||0;
   });
-  document.getElementById("cart-count").textContent=count;
+  document.getElementById("cart-count").textContent=c;
 }
 
 function apriCarrello(){
-  const riepilogoDiv=document.getElementById("riepilogo");
-  const totaleDiv=document.getElementById("totale");
-  riepilogoDiv.innerHTML=""; totaleDiv.innerHTML="";
-  const cliente=document.getElementById("cliente").value.trim();
-  riepilogoDiv.innerHTML+=cliente?`<h3>Ecco il tuo ordine ${cliente}:</h3>`:`<h3>Ecco il tuo ordine (cliente non specificato):</h3>`;
+  const r=document.getElementById("riepilogo"),t=document.getElementById("totale");
+  r.innerHTML=""; t.innerHTML="";
+  const cl=document.getElementById("cliente").value.trim();
+  const tel=document.getElementById("telefono").value.trim();
+  r.innerHTML+=cl?`<h3>Ecco il tuo ordine ${cl} (${tel}):</h3>`:`<h3>Ecco il tuo ordine (cliente non specificato):</h3>`;
   let i=0,tot=0;
   document.querySelectorAll(".panino").forEach(p=>{
     if(!p.querySelector(".attivo").checked)return;
-    const base=p.dataset.base;
-    const q=parseInt(p.querySelector(".quantita").value);
-    const pane=p.querySelector(".pane").value;
-    const variante=p.querySelector(".variante")?.value||"";
-    const ingr=[...p.querySelectorAll(".extra:checked")].map(x=>x.value);
-    const note=p.querySelector("textarea").value.trim();
-    const labelQ=q===1?"panino":"panini"; tot+=q;
-    let descr=`${base}`; if(variante)descr+=` (${variante})`; descr+=` - ${pane}`;
-    if(ingr.length)descr+=` + ${ingr.join(", ")}`; if(note)descr+=` | Note: ${note}`;
+    const b=p.dataset.base,q=parseInt(p.querySelector(".quantita").value),pa=p.querySelector(".pane").value,
+          v=p.querySelector(".variante")?.value||"",ing=[...p.querySelectorAll(".extra:checked")].map(x=>x.value),
+          n=p.querySelector("textarea").value.trim(),l=q===1?"panino":"panini";
+    tot+=q;
+    let d=`${b}`; if(v)d+=` (${v})`; d+=` - ${pa}`;
+    if(ing.length)d+=` + ${ing.join(", ")}`; if(n)d+=` | Note: ${n}`;
     const div=document.createElement("div");
     div.className="ordine-item";
-    div.innerHTML=`<span>${q} ${labelQ} ${descr}</span>
-      <label>Quantità: <input type="number" min="1" value="${q}" onchange="modificaQuantita(${i}, this.value)"></label>
+    div.innerHTML=`<span>${q} ${l} ${d}</span>
+      <label>Quantità:<input type="number" min="1" value="${q}" onchange="modificaQuantita(${i}, this.value)"></label>
       <button onclick="rimuoviPanino(${i})">❌ Rimuovi</button>`;
-    riepilogoDiv.appendChild(div); i++;
+    r.appendChild(div); i++;
   });
-  if(tot>0){
-    const labelTot=tot===1?"panino":"panini";
-    totaleDiv.innerHTML=`Totale: ${tot} ${labelTot}`;
-  }
+  if(tot>0){const l=tot===1?"panino":"panini";t.innerHTML=`Totale: ${tot} ${l}`;}
   document.getElementById("modal-carrello").style.display="flex";
 }
 
@@ -288,27 +277,24 @@ function rimuoviPanino(i){const ps=[...document.querySelectorAll(".panino")].fil
 function svuotaCarrello(){document.querySelectorAll(".panino .attivo").forEach(c=>c.checked=false);aggiornaCarrello();apriCarrello();}
 
 function inviaWhatsApp(){
-  const cliente=document.getElementById("cliente").value.trim();
-  let dettaglio="",tot=0;
+  const cl=document.getElementById("cliente").value.trim();
+  const tel=document.getElementById("telefono").value.trim();
+  let d="",tot=0;
   document.querySelectorAll(".panino").forEach(p=>{
     if(!p.querySelector(".attivo").checked)return;
-    const base=p.dataset.base;
-    const q=parseInt(p.querySelector(".quantita").value);
-    const pane=p.querySelector(".pane").value;
-    const variante=p.querySelector(".variante")?.value||"";
-    const ingr=[...p.querySelectorAll(".extra:checked")].map(x=>x.value);
-    const note=p.querySelector("textarea").value.trim();
-    const labelQ=q===1?"panino":"panini"; tot+=q;
-    let r=`${q} ${labelQ} ${base}`;
-    if(variante)r+=` (${variante})`; r+=` - ${pane}`;
-    if(ingr.length)r+=` + ${ingr.join(", ")}`; if(note)r+=` | Note: ${note}`;
-    dettaglio+=r+"\n";
+    const b=p.dataset.base,q=parseInt(p.querySelector(".quantita").value),pa=p.querySelector(".pane").value,
+          v=p.querySelector(".variante")?.value||"",ing=[...p.querySelectorAll(".extra:checked")].map(x=>x.value),
+          n=p.querySelector("textarea").value.trim(),l=q===1?"panino":"panini";
+    tot+=q;
+    let r=`${q} ${l} ${b}`; if(v)r+=` (${v})`; r+=` - ${pa}`;
+    if(ing.length)r+=` + ${ing.join(", ")}`; if(n)r+=` | Note: ${n}`;
+    d+=r+"\n";
   });
   if(!tot){alert("Carrello vuoto");return;}
-  const labelTot=tot===1?"panino":"panini";
-  dettaglio+=`\nTotale: ${tot} ${labelTot}`;
-  const msg=cliente?`Ecco il tuo ordine ${cliente}:\n\n${dettaglio}`:`Ecco il tuo ordine (cliente non specificato):\n\n${dettaglio}`;
-  window.open("https://wa.me/393384461593?text="+encodeURIComponent(msg),"_blank");
+  const l=tot===1?"panino":"panini";
+  d+=`\nTotale: ${tot} ${l}`;
+  const m=cl?`Ecco il tuo ordine ${cl} (${tel}):\n\n${d}`:`Ecco il tuo ordine (cliente non specificato):\n\n${d}`;
+  window.open("https://wa.me/393384461593?text="+encodeURIComponent(m),"_blank");
 }
 </script>
 
