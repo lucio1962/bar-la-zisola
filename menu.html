@@ -258,7 +258,7 @@
     <div class="modal-buttons">
       <button onclick="chiudiCarrello()">Chiudi</button>
       <button onclick="svuotaCarrello()">Svuota carrello</button>
-      <button onclick="inviaOrdine()">Invia ordine</button>
+      <button onclick="inviaOrdine()">Invia su WhatsApp</button>
     </div>
   </div>
 </div>
@@ -339,9 +339,23 @@ function inviaOrdine() {
   const nome = document.getElementById('cliente').value.trim();
   const telefono = document.getElementById('telefono').value.trim();
   if (!nome || !telefono) { alert("Inserisci nome e telefono."); return; }
-  alert("Ordine inviato! Grazie " + nome);
-  chiudiCarrello();
-  svuotaCarrello();
+
+  let testo = `Ordine da ${nome} (${telefono}):%0A`;
+  document.querySelectorAll('.panino').forEach(p => {
+    if (p.querySelector('.attivo').checked) {
+      const nome = p.dataset.base;
+      const quantita = p.querySelector('.quantita').value;
+      const pane = p.querySelector('.pane').value;
+      const variante = p.querySelector('.variante').value;
+      const extras = [...p.querySelectorAll('.extra:checked')].map(e => e.value);
+      const note = p.querySelector('textarea').value;
+      testo += `- ${nome} x${quantita} (${pane}, ${variante})%0A   Extra: ${extras.join(', ') || 'Nessuno'}%0A   Note: ${note || '—'}%0A`;
+    }
+  });
+
+  const numeroWhatsApp = "393384461593";
+  const url = `https://wa.me/${numeroWhatsApp}?text=${testo}`;
+  window.open(url, "_blank");
 }
 </script>
 
