@@ -5,50 +5,222 @@
   <title>Bar La Zisola - Contatti</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    :root { --shadow: 0 2px 6px rgba(0,0,0,0.3); }
-    body {font-family: Arial, sans-serif; margin:0; background:#fdfdfd; color:#333;}
+    :root {
+      --primary-color: #d84315;
+      --primary-dark: #a52a10;
+      --primary-light: #ff7043;
+      --whatsapp: #25D366;
+      --whatsapp-hover: #128C7E;
+      --map: #4285F4;
+      --map-hover: #2b62c9;
+      --shadow: 0 2px 6px rgba(0,0,0,0.3);
+      --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+    }
+    
     nav {
-      position:sticky; top:0; z-index:1000;
-      display:flex; align-items:center; justify-content:space-between;
-      background:linear-gradient(135deg,#ff7043,#d84315);
-      padding:12px 20px; color:#fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+      padding: 12px 20px;
+      color: #fff;
       box-shadow: var(--shadow);
     }
-    nav a {color:white; margin-right:20px; text-decoration:none; font-weight:bold;}
-    h1 {text-align:center; margin:30px; color:#d84315;}
-    .container {max-width:800px; margin:0 auto; padding:20px;}
+    
+    nav a {
+      color: white;
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+      color: var(--primary-color);
+      font-size: 2.2rem;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
     .card {
-      background:#fff; padding:20px; margin-bottom:20px;
-      border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card h2 {margin-top:0; color:#d84315;}
-    .card p {margin:8px 0; font-size:1.1em;}
-    a.btn {
-      display:inline-block; margin-top:10px; padding:12px 20px;
-      background:#25D366; color:white; border-radius:8px; text-decoration:none;
-      font-weight:bold; box-shadow:var(--shadow);
+    
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    a.btn:hover {background:#128C7E;}
+    
+    .card h2 {
+      margin-top: 0;
+      color: var(--primary-color);
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 10px;
+    }
+    
+    .card p {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 12px 20px;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .btn-whatsapp {
+      background: var(--whatsapp);
+    }
+    
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-hover);
+    }
+    
+    .btn-call {
+      background: var(--primary-color);
+    }
+    
+    .btn-call:hover {
+      background: var(--primary-dark);
+    }
+    
+    .btn-map {
+      background: var(--map);
+    }
+    
+    .btn-map:hover {
+      background: var(--map-hover);
+    }
+    
     .btn-group {
-      display:flex; gap:15px; flex-wrap:wrap; margin-top:15px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
     }
-    .btn-call {background:#d84315;}
-    .btn-call:hover {background:#a52a10;}
-    .btn-map {background:#4285F4;}
-    .btn-map:hover {background:#2b62c9;}
+    
     .map {
-      margin-top:20px; border-radius:10px; overflow:hidden;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
     }
+    
+    .contact-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .contact-info .icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
     footer {
-      background:#333; color:#eee; text-align:center; padding:20px; margin-top:40px; font-size:0.9em;
+      background: #333;
+      color: #eee;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+    
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        padding: 10px;
+      }
+      
+      nav a {
+        margin: 5px;
+        display: block;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+        margin: 20px 0;
+      }
+      
+      .container {
+        padding: 15px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div><a href="index.html">Home</a> <a href="menu.html">Menu</a> <a href="contatti.html">Contatti</a></div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="contatti.html">Contatti</a>
+  </div>
 </nav>
 
 <h1>Contatti</h1>
@@ -56,7 +228,10 @@
 <div class="container">
   <div class="card">
     <h2>Dove siamo</h2>
-    <p>📍 Strada Statale 115, Noto (SR), Sicilia</p>
+    <div class="contact-info">
+      <span class="icon">📍</span>
+      <p>Strada Statale 115, Noto (SR), Sicilia</p>
+    </div>
     <p>Punto di sosta comodo per camionisti, lavoratori e viaggiatori.</p>
     <div class="map">
       <iframe 
@@ -65,26 +240,37 @@
       </iframe>
     </div>
     <div class="btn-group">
-      <a class="btn btn-call" href="tel:+393384461593">📞 Chiama</a>
-      <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=36.8776693,15.0428343" target="_blank">🗺️ Naviga</a>
+      <a class="btn btn-call" href="tel:+393384461593">
+        <span>📞</span> Chiama
+      </a>
+      <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&destination=36.8776693,15.0428343" target="_blank">
+        <span>🗺️</span> Naviga
+      </a>
     </div>
   </div>
 
   <div class="card">
     <h2>Ordini veloci</h2>
     <p>Puoi ordinare anche tramite WhatsApp, ti rispondiamo subito.</p>
-    <a class="btn" href="https://wa.me/393384461593" target="_blank">📲 Scrivici su WhatsApp</a>
+    <a class="btn btn-whatsapp" href="https://wa.me/393384461593" target="_blank">
+      <span>📲</span> Scrivici su WhatsApp
+    </a>
   </div>
 
   <div class="card">
     <h2>Orari di apertura</h2>
-    <p>Lunedì - Sabato: 4:30 - 20:00</p>
-    <p>Domenica: 4:30 - 12:00</p>
+    <div class="contact-info">
+      <span class="icon">🕒</span>
+      <div>
+        <p><strong>Lunedì - Sabato:</strong> 4:30 - 20:00</p>
+        <p><strong>Domenica:</strong> 4:30 - 12:00</p>
+      </div>
+    </div>
   </div>
 </div>
 
 <footer>
-  &copy; 2025 Bar La Zisola - Tutti i diritti riservati
+  <p>&copy; 2025 Bar La Zisola - Tutti i diritti riservati</p>
 </footer>
 
 </body>
