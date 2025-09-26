@@ -74,11 +74,11 @@
   </div>
 
   <div class="menu-grid">
-    <!-- 14 panini -->
+    <!-- Carne di cavallo -->
     <div class="panino" data-base="Carne di cavallo"><h3>Panino con carne di cavallo</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: carne di cavallo, cipolla</p>
-      <label>Quantità: <input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
       <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
       <label>Variante:<select class="variante"><option>Cipolla fresca</option><option>Caramellata</option></select></label>
       <div class="extra-options"><strong>Extra</strong>
@@ -87,6 +87,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Bresaola -->
     <div class="panino" data-base="Bresaola"><h3>Panino con bresaola</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: bresaola, rucola, parmigiano</p>
@@ -99,6 +100,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Porchetta -->
     <div class="panino" data-base="Porchetta"><h3>Panino con porchetta</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: porchetta</p>
@@ -111,6 +113,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Mortadella -->
     <div class="panino" data-base="Mortadella"><h3>Panino con mortadella</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: mortadella</p>
@@ -123,6 +126,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Prosciutto crudo -->
     <div class="panino" data-base="Prosciutto crudo"><h3>Panino con prosciutto crudo</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: prosciutto crudo</p>
@@ -135,6 +139,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Prosciutto cotto -->
     <div class="panino" data-base="Prosciutto cotto"><h3>Panino con prosciutto cotto</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: prosciutto cotto</p>
@@ -147,6 +152,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Salame -->
     <div class="panino" data-base="Salame"><h3>Panino con salame</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: salame</p>
@@ -159,6 +165,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Pancetta -->
     <div class="panino" data-base="Pancetta"><h3>Panino con pancetta</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: pancetta</p>
@@ -171,6 +178,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Caprese -->
     <div class="panino" data-base="Caprese"><h3>Panino caprese</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: mozzarella, pomodoro, basilico</p>
@@ -183,6 +191,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Vegetariano -->
     <div class="panino" data-base="Vegetariano"><h3>Panino vegetariano</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: verdure grigliate, formaggio</p>
@@ -195,6 +204,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Tonno -->
     <div class="panino" data-base="Tonno"><h3>Panino con tonno</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: tonno, pomodoro, insalata</p>
@@ -207,6 +217,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Salsiccia -->
     <div class="panino" data-base="Salsiccia"><h3>Panino con salsiccia</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: salsiccia fresca</p>
@@ -219,6 +230,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Wurstel -->
     <div class="panino" data-base="Wurstel"><h3>Panino con wurstel</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: wurstel</p>
@@ -231,6 +243,7 @@
       </div><textarea placeholder="Note extra..."></textarea>
     </div>
 
+    <!-- Hamburger -->
     <div class="panino" data-base="Hamburger"><h3>Hamburger</h3>
       <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: hamburger di manzo</p>
@@ -340,7 +353,7 @@ function inviaOrdine() {
   const telefono = document.getElementById('telefono').value.trim();
   if (!nome || !telefono) { alert("Inserisci nome e telefono."); return; }
 
-  let testo = `Ordine da ${nome} (${telefono}):%0A`;
+  let testo = `Ordine da ${nome} (${telefono}):\n`;
   document.querySelectorAll('.panino').forEach(p => {
     if (p.querySelector('.attivo').checked) {
       const nome = p.dataset.base;
@@ -349,13 +362,12 @@ function inviaOrdine() {
       const variante = p.querySelector('.variante').value;
       const extras = [...p.querySelectorAll('.extra:checked')].map(e => e.value);
       const note = p.querySelector('textarea').value;
-      testo += `- ${nome} x${quantita} (${pane}, ${variante})%0A   Extra: ${extras.join(', ') || 'Nessuno'}%0A   Note: ${note || '—'}%0A`;
+      testo += `- ${nome} x${quantita} (${pane}, ${variante})\n   Extra: ${extras.join(', ') || 'Nessuno'}\n   Note: ${note || '—'}\n`;
     }
   });
 
-  // MODIFICA PRINCIPALE: Aggiunto il prefisso + al numero
-  const numeroWhatsApp = "+393384461593";
-  const url = `https://wa.me/${numeroWhatsApp}?text=${testo}`;
+  const numeroWhatsApp = "393384461593"; // corretto formato internazionale
+  const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(testo)}`;
   window.open(url, "_blank");
 }
 </script>
