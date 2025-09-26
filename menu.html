@@ -353,6 +353,7 @@ function inviaOrdine() {
     }
   });
 
+  // MODIFICA PRINCIPALE: Aggiunto il prefisso + al numero
   const numeroWhatsApp = "+393384461593";
   const url = `https://wa.me/${numeroWhatsApp}?text=${testo}`;
   window.open(url, "_blank");
