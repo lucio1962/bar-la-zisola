@@ -2,69 +2,482 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Bar La Zisola - Home</title>
+  <title>Bar La Zisola - Tradizione e Gusto dal 1985</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bar La Zisola - Il punto di riferimento per camionisti e viaggiatori. Panini artigianali, colazioni e granite siciliane.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root { --shadow: 0 2px 6px rgba(0,0,0,0.3); }
-    body {font-family: Arial, sans-serif; margin:0; background:#fdfdfd; color:#333;}
+    :root {
+      --primary: #d84315;
+      --primary-dark: #bf360c;
+      --secondary: #ff9800;
+      --accent: #25D366;
+      --light: #fff8f0;
+      --dark: #333;
+      --shadow: 0 4px 12px rgba(0,0,0,0.15);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
     nav {
-      position:sticky; top:0; z-index:1000;
-      display:flex; align-items:center; justify-content:space-between;
-      background:linear-gradient(135deg,#ff7043,#d84315);
-      padding:12px 20px; color:#fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      padding: 1rem 2rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo i {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+
+    .nav-links a:hover::after {
+      width: 80%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 70vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                  url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1400&q=80') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Features Grid */
+    .features {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .features-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    /* Story Section */
+    .story {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--light), #fff);
+    }
+
+    .story-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .story h2 {
+      font-size: 2.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .story h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--secondary);
+    }
+
+    .story-content {
+      background: white;
+      padding: 3rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: left;
+      font-size: 1.1rem;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, var(--secondary) 0%, var(--secondary) 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.3em;
+      background-position: 0 88%;
+      transition: background-size 0.3s ease;
+      padding: 0.2rem 0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      text-align: center;
+    }
+
+    .cta-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: var(--transition);
       box-shadow: var(--shadow);
     }
-    nav a {color:white; margin-right:20px; text-decoration:none; font-weight:bold;}
-    header {
-      background:url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
-      color:white; text-align:center; padding:100px 20px;
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
-    header h1 {font-size:3em; margin:0; text-shadow:0 2px 6px rgba(0,0,0,0.6);}
-    header p {font-size:1.3em; margin-top:15px; max-width:800px; margin-left:auto; margin-right:auto; text-shadow:0 1px 4px rgba(0,0,0,0.6);}
-    .container {max-width:900px; margin:40px auto; padding:0 20px;}
-    .descrizione {
-      background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
-      font-size:1.1em; line-height:1.6;
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid white;
     }
-    .cta {text-align:center; margin:40px;}
-    .cta a {
-      background:#25D366; color:white; padding:15px 30px; border-radius:8px;
-      font-size:1.2em; text-decoration:none; font-weight:bold; box-shadow: var(--shadow);
+
+    .btn-secondary:hover {
+      background: white;
+      color: var(--primary);
     }
-    .cta a:hover {background:#128C7E;}
+
+    /* Footer */
     footer {
-      background:#333; color:#eee; text-align:center; padding:20px; margin-top:40px; font-size:0.9em;
+      background: var(--dark);
+      color: white;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div><a href="index.html">Home</a> <a href="menu.html">Menu</a> <a href="contatti.html">Contatti</a></div>
+  <div class="nav-container">
+    <div class="logo">
+      <i class="fas fa-utensils"></i>
+      Bar La Zisola
+    </div>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="menu.html"><i class="fas fa-burger"></i> Menu</a>
+      <a href="contatti.html"><i class="fas fa-phone"></i> Contatti</a>
+    </div>
+  </div>
 </nav>
 
-<header>
-  <h1>Bar La Zisola</h1>
-  <p>Il punto di sosta preferito da camionisti, lavoratori e viaggiatori.</p>
-</header>
-
-<div class="container">
-  <div class="descrizione">
-    <p><strong>Ciccio</strong>, con la sua passione per la cucina semplice e genuina, da tanti anni prepara panini abbondanti e gustosi. La sua esperienza e la scelta di ingredienti di qualità hanno trasformato il Bar La Zisola in un luogo familiare, dove il profumo del pane caldo si mescola alla cordialità dell’accoglienza.</p>
-    <p>Ogni giorno, fin dalle prime ore del mattino, il bar è un punto di riferimento per <strong>camionisti, operai, lavoratori e viaggiatori</strong> che percorrono la strada statale. Qui trovano non solo un pasto veloce ma sostanzioso, ma anche un sorriso e due parole con Ciccio, che conosce bene le esigenze di chi è sempre in movimento.</p>
-    <p>Al Bar La Zisola puoi <strong>mangiare da noi</strong> in un ambiente semplice e accogliente, <strong>portare via</strong> il tuo panino per continuare il viaggio, oppure <strong>ordinare a domicilio</strong> e riceverlo con consegna rapida. Ogni panino è fatto al momento, con cura artigianale, proprio come si faceva una volta.</p>
-    <p>Non solo panini: al mattino ti aspetta una ricca <strong>colazione</strong> con brioches fresche, cappuccini cremosi, caffè e tante altre specialità per iniziare bene la giornata. Un servizio pensato per chi ha bisogno di energia prima di riprendere la strada o affrontare una giornata di lavoro.</p>
-    <p>E quando arriva l’estate, non mancano le vere <strong>granite siciliane</strong>, servite con la tradizionale <strong>brioche col tuppo</strong>, per regalarti un momento di freschezza e dolcezza tipico della nostra terra.</p>
-    <p>Bar La Zisola non è solo un bar: è un <em>luogo di sosta e ristoro</em>, un piccolo punto di ritrovo dove tradizione, sapore e genuinità si incontrano ogni giorno.</p>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Bar La Zisola</h1>
+    <p>Dal 1985, il punto di sosta preferito da chi ama il gusto autentico</p>
+    <div class="cta-buttons">
+      <a href="menu.html" class="btn">
+        <i class="fas fa-eye"></i> Scopri il Menu
+      </a>
+      <a href="tel:+390123456789" class="btn btn-secondary">
+        <i class="fas fa-phone"></i> Chiama Ora
+      </a>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="cta">
-  <a href="menu.html">🍔 Vai al Menu</a>
-</div>
+<section class="features">
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="fas fa-truck-moving"></i>
+      </div>
+      <h3>Per Camionisti</h3>
+      <p>Area sosta dedicata e panini sostanziosi per chi è sempre in viaggio</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="fas fa-bread-slice"></i>
+      </div>
+      <h3>Panini Artigianali</h3>
+      <p>Preparati al momento con ingredienti freschi e di qualità</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">
+        <i class="fas fa-ice-cream"></i>
+      </div>
+      <h3>Granite Siciliane</h3>
+      <p>Autentiche granite con brioche col tuppo, come da tradizione</p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="story-container">
+    <h2>La Nostra Storia</h2>
+    <div class="story-content">
+      <p><span class="highlight">Ciccio</span>, con la sua passione per la cucina semplice e genuina, da oltre 35 anni prepara panini abbondanti e gustosi. La sua esperienza e la scelta di ingredienti di qualità hanno trasformato il Bar La Zisola in un luogo familiare, dove il profumo del pane caldo si mescola alla cordialità dell'accoglienza.</p>
+      
+      <p>Ogni giorno, fin dalle prime ore del mattino, il bar è un punto di riferimento per <span class="highlight">camionisti, operai, lavoratori e viaggiatori</span> che percorrono la strada statale. Qui trovano non solo un pasto veloce ma sostanzioso, ma anche un sorriso e due parole con Ciccio, che conosce bene le esigenze di chi è sempre in movimento.</p>
+      
+      <p>Al Bar La Zisola puoi <span class="highlight">mangiare da noi</span> in un ambiente semplice e accogliente, <span class="highlight">portare via</span> il tuo panino per continuare il viaggio, oppure <span class="highlight">ordinare a domicilio</span> e riceverlo con consegna rapida. Ogni panino è fatto al momento, con cura artigianale, proprio come si faceva una volta.</p>
+      
+      <p>Non solo panini: al mattino ti aspetta una ricca <span class="highlight">colazione</span> con brioches fresche, cappuccini cremosi, caffè e tante altre specialità per iniziare bene la giornata. Un servizio pensato per chi ha bisogno di energia prima di riprendere la strada o affrontare una giornata di lavoro.</p>
+      
+      <p>E quando arriva l'estate, non mancano le vere <span class="highlight">granite siciliane</span>, servite con la tradizionale <span class="highlight">brioche col tuppo</span>, per regalarti un momento di freschezza e dolcezza tipico della nostra terra.</p>
+      
+      <p>Bar La Zisola non è solo un bar: è un <em>luogo di sosta e ristoro</em>, un piccolo punto di ritrovo dove tradizione, sapore e genuinità si incontrano ogni giorno.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-container">
+    <h2>Pronto ad assaggiare la nostra tradizione?</h2>
+    <p>Vieni a trovarci o ordina ora per una pausa gustosa</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/39123456789" class="btn">
+        <i class="fab fa-whatsapp"></i> Ordina su WhatsApp
+      </a>
+      <a href="contatti.html" class="btn btn-secondary">
+        <i class="fas fa-map-marker-alt"></i> Vieni a Trovarci
+      </a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  &copy; 2025 Bar La Zisola - Tutti i diritti riservati
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Orari</h3>
+      <p>Lun-Dom: 5:00 - 22:00</p>
+      <p>Aperto tutti i giorni</p>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contatti</h3>
+      <p><i class="fas fa-phone"></i> +39 0123 456789</p>
+      <p><i class="fas fa-envelope"></i> info@barzisola.it</p>
+      <p><i class="fas fa-map-marker-alt"></i> Via Statale, 123 - Sicilia</p>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Seguici</h3>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Bar La Zisola - Tutti i diritti riservati | P.IVA 01234567890</p>
+  </div>
 </footer>
 
 </body>
