@@ -11,440 +11,38 @@
       --primary-light: #ff7043;
       --secondary: #25D366;
       --secondary-dark: #128C7E;
-      --shadow: 0 2px 6px rgba(0,0,0,0.3);
       --shadow-light: 0 2px 8px rgba(0,0,0,0.1);
       --radius: 10px;
     }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #f8f9fa;
-      line-height: 1.6;
-      color: #333;
-    }
-    
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(135deg, var(--primary-light), var(--primary));
-      padding: 12px 20px;
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-    
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-    
-    nav a:hover {
-      background-color: rgba(255,255,255,0.2);
-    }
-    
-    .cart {
-      font-size: 2.2em;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.2s;
-    }
-    
-    .cart:hover {
-      transform: scale(1.1);
-    }
-    
-    .cart span {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      background: white;
-      color: var(--primary);
-      font-size: 0.7em;
-      font-weight: bold;
-      padding: 2px 6px;
-      border-radius: 50%;
-      min-width: 20px;
-      text-align: center;
-    }
-    
-    header {
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(135deg, #fff, #f8f9fa);
-      margin-bottom: 20px;
-    }
-    
-    h1 {
-      color: var(--primary);
-      margin: 0;
-      font-size: 2.5em;
-    }
-    
-    .subtitle {
-      color: #666;
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-    
-    .customer-info {
-      background: #fff;
-      border-radius: var(--radius);
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 700px;
-      box-shadow: var(--shadow-light);
-    }
-    
-    .customer-info label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-      color: var(--primary);
-    }
-    
-    .customer-info input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1em;
-      transition: border-color 0.3s;
-    }
-    
-    .customer-info input:focus {
-      border-color: var(--primary);
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(216, 67, 21, 0.2);
-    }
-    
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    
-    .panino {
-      background: #fff;
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow-light);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .panino:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .panino::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-light), var(--primary));
-    }
-    
-    .panino-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 15px;
-    }
-    
-    .panino h3 {
-      margin: 0;
-      color: var(--primary);
-      font-size: 1.4em;
-    }
-    
-    .panino p {
-      margin: 0 0 15px 0;
-      color: #666;
-      font-style: italic;
-    }
-    
-    .panino label {
-      display: block;
-      margin: 8px 0;
-      cursor: pointer;
-    }
-    
-    .panino select, 
-    .panino textarea, 
-    .panino input[type="number"] {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1em;
-      transition: border-color 0.3s;
-    }
-    
-    .panino select:focus,
-    .panino textarea:focus {
-      border-color: var(--primary);
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(216, 67, 21, 0.2);
-    }
-    
-    .panino textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-    
-    .extra-options {
-      margin: 15px 0;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 6px;
-    }
-    
-    .extra-options strong {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
-    
-    .controls {
-      text-align: center;
-      margin: 30px 0;
-    }
-    
-    button {
-      background: var(--secondary);
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-size: 1.1em;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      transition: background-color 0.3s, transform 0.2s;
-    }
-    
-    button:hover {
-      background: var(--secondary-dark);
-      transform: translateY(-2px);
-    }
-    
-    button.secondary {
-      background: #6c757d;
-    }
-    
-    button.secondary:hover {
-      background: #545b62;
-    }
-    
-    button.danger {
-      background: #dc3545;
-    }
-    
-    button.danger:hover {
-      background: #c82333;
-    }
-    
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.3s;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    .modal-content {
-      background: white;
-      padding: 25px;
-      border-radius: var(--radius);
-      max-width: 700px;
-      width: 90%;
-      max-height: 85vh;
-      overflow-y: auto;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      animation: slideIn 0.3s;
-    }
-    
-    @keyframes slideIn {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    
-    .modal h2 {
-      margin-top: 0;
-      color: var(--primary);
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-    }
-    
-    .ordine-item {
-      border-bottom: 1px solid #eee;
-      padding: 15px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    
-    .ordine-item:last-child {
-      border-bottom: none;
-    }
-    
-    .ordine-details {
-      flex: 1;
-      margin-right: 15px;
-    }
-    
-    .ordine-details strong {
-      color: var(--primary);
-      font-size: 1.1em;
-    }
-    
-    .ordine-details u {
-      color: #000;
-    }
-    
-    .ordine-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .ordine-item input[type="number"] {
-      width: 70px;
-      padding: 8px;
-    }
-    
-    .close {
-      float: right;
-      font-size: 1.8em;
-      cursor: pointer;
-      color: #666;
-      transition: color 0.3s;
-    }
-    
-    .close:hover {
-      color: #000;
-    }
-    
-    .totale {
-      margin-top: 20px;
-      font-weight: bold;
-      text-align: center;
-      font-size: 1.3em;
-      color: var(--primary);
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: var(--radius);
-    }
-    
-    .modal-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 25px;
-      flex-wrap: wrap;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .nav-links {
-        gap: 10px;
-      }
-      
-      nav a {
-        font-size: 0.9em;
-        padding: 5px 8px;
-      }
-      
-      h1 {
-        font-size: 2em;
-      }
-      
-      .modal-buttons {
-        flex-direction: column;
-      }
-      
-      .modal-buttons button {
-        width: 100%;
-        margin: 5px 0;
-      }
-      
-      .ordine-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .ordine-actions {
-        margin-top: 10px;
-        width: 100%;
-        justify-content: space-between;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      nav {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-      }
-      
-      .nav-links {
-        justify-content: center;
-      }
-      
-      h1 {
-        font-size: 1.8em;
-      }
-      
-      .panino {
-        padding: 15px;
-      }
-    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: #f8f9fa; color: #333; }
+    nav { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center;
+          background: linear-gradient(135deg, var(--primary-light), var(--primary)); padding: 12px 20px; color: #fff; z-index:1000;}
+    .nav-links { display: flex; gap: 20px; }
+    nav a { color: white; text-decoration: none; font-weight: 600; }
+    nav a:hover { background: rgba(255,255,255,0.2); border-radius: 5px; padding: 2px 6px; }
+    .cart { font-size: 2em; cursor: pointer; position: relative; }
+    .cart span { position: absolute; top: -8px; right: -10px; background: #fff; color: var(--primary); font-size: 0.7em; padding: 2px 6px; border-radius: 50%; }
+    header { text-align: center; padding: 20px; background: #fff; margin-bottom: 20px; }
+    h1 { color: var(--primary); margin: 0; font-size: 2.2em; }
+    .subtitle { color: #666; }
+    .container { max-width: 1200px; margin: auto; padding: 0 15px; }
+    .customer-info { background: #fff; border-radius: var(--radius); padding: 20px; margin: 20px auto; max-width: 700px; box-shadow: var(--shadow-light);}
+    .customer-info label { font-weight: 600; color: var(--primary); display:block; margin:10px 0 5px; }
+    .customer-info input { width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; }
+    .menu-grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(350px,1fr)); gap:20px; }
+    .panino { background:#fff; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow-light); }
+    .panino h3 { color:var(--primary); margin:0 0 10px; }
+    .extra-options { background:#f8f9fa; padding:10px; border-radius:6px; margin:10px 0; }
+    .controls { text-align:center; margin:30px 0; }
+    button { background:var(--secondary); color:#fff; border:none; padding:12px 20px; border-radius:8px; cursor:pointer; }
+    button:hover { background:var(--secondary-dark); }
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);
+             justify-content:center; align-items:center; z-index:2000;}
+    .modal-content { background:#fff; padding:20px; border-radius:var(--radius); max-width:700px; width:90%; max-height:85vh; overflow-y:auto; }
+    .close { float:right; cursor:pointer; font-size:1.5em; }
+    .ordine-item { border-bottom:1px solid #eee; padding:10px 0; }
+    .modal-buttons { display:flex; gap:10px; justify-content:center; margin-top:20px; flex-wrap:wrap;}
   </style>
 </head>
 <body>
@@ -454,286 +52,305 @@
     <a href="index.html">🏠 Home</a>
     <a href="contatti.html">📞 Contatti</a>
   </div>
-  <div class="cart" onclick="apriCarrello()" title="Apri carrello">
+  <div class="cart" onclick="apriCarrello()">
     🛒<span id="cart-count">0</span>
   </div>
 </nav>
 
 <header>
   <h1>Menu Panini</h1>
-  <p class="subtitle">Scegli tra le nostre specialità artigianali</p>
+  <p class="subtitle">Scegli tra le nostre specialità</p>
 </header>
 
 <div class="container">
   <div class="customer-info">
-    <label for="cliente"><strong>Il tuo nome:</strong></label>
-    <input type="text" id="cliente" placeholder="Scrivi qui il tuo nome...">
-    
-    <label for="telefono"><strong>Il tuo telefono:</strong></label>
-    <input type="text" id="telefono" placeholder="Scrivi qui il tuo numero...">
+    <label for="cliente">Il tuo nome:</label>
+    <input type="text" id="cliente">
+    <label for="telefono">Telefono:</label>
+    <input type="text" id="telefono">
   </div>
 
   <div class="menu-grid">
     <!-- Carne di cavallo -->
     <div class="panino" data-base="Carne di cavallo">
-      <div class="panino-header">
-        <h3>Panino con carne di cavallo</h3>
-        <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
-      </div>
+      <h3>Panino con carne di cavallo</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: carne di cavallo, cipolla</p>
-      <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-      <label>Tipo pane:
-        <select class="pane">
-          <option>Ciabatta croccante</option>
-          <option>Morbido</option>
-        </select>
-      </label>
-      <label>Variante:
-        <select class="variante">
-          <option>Cipolla fresca</option>
-          <option>Cipolla caramellata</option>
-        </select>
-      </label>
-      <div class="extra-options">
-        <strong>Extra:</strong>
+      <label>Quantità: <input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Cipolla fresca</option><option>Caramellata</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
         <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
-        <label><input type="checkbox" value="Funghi piccanti" class="extra"> Funghi piccanti</label>
-        <label><input type="checkbox" value="Rucola" class="extra"> Rucola</label>
         <label><input type="checkbox" value="Patatine" class="extra"> Patatine</label>
-        <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
       </div>
       <textarea placeholder="Note extra..."></textarea>
     </div>
 
     <!-- Bresaola -->
     <div class="panino" data-base="Bresaola">
-      <div class="panino-header">
-        <h3>Panino con bresaola</h3>
-        <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
-      </div>
+      <h3>Panino con bresaola</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
       <p>Base: bresaola, rucola, parmigiano</p>
-      <label>Quantità:<input type="number" min="1" value="1" class="quantita" onchange="aggiornaCarrello()"></label>
-      <label>Tipo pane:
-        <select class="pane">
-          <option>Ciabatta croccante</option>
-          <option>Morbido</option>
-        </select>
-      </label>
-      <label>Variante:
-        <select class="variante">
-          <option>Parmigiano a scaglie</option>
-          <option>Grana Padano</option>
-        </select>
-      </label>
-      <div class="extra-options">
-        <strong>Extra:</strong>
+      <label>Quantità: <input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Parmigiano</option><option>Grana</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
         <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
         <label><input type="checkbox" value="Mozzarella" class="extra"> Mozzarella</label>
-        <label><input type="checkbox" value="Funghi piccanti" class="extra"> Funghi piccanti</label>
-        <label><input type="checkbox" value="Riscaldato" class="extra"> Riscaldato</label>
       </div>
       <textarea placeholder="Note extra..."></textarea>
     </div>
 
-    <!-- Gli altri panini rimangono con la stessa struttura... -->
-    <!-- Per brevità ho incluso solo i primi due come esempio -->
+    <!-- Porchetta -->
+    <div class="panino" data-base="Porchetta">
+      <h3>Panino con porchetta</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: porchetta</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Semplice</option><option>Speziata</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
+        <label><input type="checkbox" value="Peperoni" class="extra"> Peperoni</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Mortadella -->
+    <div class="panino" data-base="Mortadella">
+      <h3>Panino con mortadella</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: mortadella</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Classica</option><option>Con pistacchi</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+        <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Prosciutto crudo -->
+    <div class="panino" data-base="Prosciutto crudo">
+      <h3>Panino con prosciutto crudo</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: prosciutto crudo</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Dolce</option><option>Stagionato</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Mozzarella" class="extra"> Mozzarella</label>
+        <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Prosciutto cotto -->
+    <div class="panino" data-base="Prosciutto cotto">
+      <h3>Panino con prosciutto cotto</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: prosciutto cotto</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Alta qualità</option><option>Affumicato</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+        <label><input type="checkbox" value="Maionese" class="extra"> Maionese</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Salame -->
+    <div class="panino" data-base="Salame">
+      <h3>Panino con salame</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: salame</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Milano</option><option>Ungherese</option><option>Napoli</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+        <label><input type="checkbox" value="Rucola" class="extra"> Rucola</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Pancetta -->
+    <div class="panino" data-base="Pancetta">
+      <h3>Panino con pancetta</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: pancetta</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Arrostita</option><option>Affumicata</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+        <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Caprese -->
+    <div class="panino" data-base="Caprese">
+      <h3>Panino caprese</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: mozzarella, pomodoro, basilico</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Fiordilatte</option><option>Bufala DOP</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Origano" class="extra"> Origano</label>
+        <label><input type="checkbox" value="Rucola" class="extra"> Rucola</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Vegetariano -->
+    <div class="panino" data-base="Vegetariano">
+      <h3>Panino vegetariano</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: verdure grigliate, formaggio</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Misto verdure</option><option>Melanzane e zucchine</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Hummus" class="extra"> Hummus</label>
+        <label><input type="checkbox" value="Pesto" class="extra"> Pesto</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Tonno -->
+    <div class="panino" data-base="Tonno">
+      <h3>Panino con tonno</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: tonno, pomodoro, insalata</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Sott'olio</option><option>Alla griglia</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
+        <label><input type="checkbox" value="Maionese" class="extra"> Maionese</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Salsiccia -->
+    <div class="panino" data-base="Salsiccia">
+      <h3>Panino con salsiccia</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: salsiccia fresca</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Dolce</option><option>Piccante</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Cipolla" class="extra"> Cipolla</label>
+        <label><input type="checkbox" value="Peperoni" class="extra"> Peperoni</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Wurstel -->
+    <div class="panino" data-base="Wurstel">
+      <h3>Panino con wurstel</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: wurstel</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Ciabatta</option><option>Morbido</option></select></label>
+      <label>Variante:<select class="variante"><option>Classico</option><option>Piccante</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Ketchup" class="extra"> Ketchup</label>
+        <label><input type="checkbox" value="Maionese" class="extra"> Maionese</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="panino" data-base="Hamburger">
+      <h3>Hamburger</h3>
+      <label><input type="checkbox" class="attivo" onchange="aggiornaCarrello()"> Seleziona</label>
+      <p>Base: hamburger di manzo</p>
+      <label>Quantità:<input type="number" class="quantita" min="1" value="1" onchange="aggiornaCarrello()"></label>
+      <label>Pane:<select class="pane"><option>Burger bun</option><option>Ciabatta</option></select></label>
+      <label>Variante:<select class="variante"><option>Classico</option><option>Cheeseburger</option><option>Bacon burger</option></select></label>
+      <div class="extra-options"><strong>Extra</strong>
+        <label><input type="checkbox" value="Formaggio" class="extra"> Formaggio</label>
+        <label><input type="checkbox" value="Bacon" class="extra"> Bacon</label>
+        <label><input type="checkbox" value="Pomodoro" class="extra"> Pomodoro</label>
+      </div>
+      <textarea placeholder="Note extra..."></textarea>
+    </div>
 
   </div>
 
   <div class="controls">
-    <button onclick="apriCarrello()">🛒 Vedi carrello (<span id="cart-count-text">0</span> panini)</button>
+    <button onclick="apriCarrello()">🛒 Vedi carrello (<span id="cart-count-text">0</span>)</button>
   </div>
 </div>
 
 <div class="modal" id="modal-carrello">
   <div class="modal-content">
-    <span class="close" onclick="chiudiCarrello()" title="Chiudi">&times;</span>
+    <span class="close" onclick="chiudiCarrello()">&times;</span>
     <h2>Il tuo ordine</h2>
-    <div id="riepilogo"></div>
-    <div class="totale" id="totale"></div>
+    <div id="ordine-list"></div>
     <div class="modal-buttons">
-      <button onclick="inviaWhatsApp()">📲 Invia su WhatsApp</button>
-      <button class="secondary" onclick="chiudiCarrello()">✏️ Continua a ordinare</button>
-      <button class="danger" onclick="svuotaCarrello()">🗑️ Svuota carrello</button>
+      <button onclick="chiudiCarrello()">Chiudi</button>
+      <button onclick="svuotaCarrello()">Svuota carrello</button>
+      <button onclick="inviaOrdine()">Invia ordine</button>
     </div>
   </div>
 </div>
 
 <script>
-// Variabile globale per memorizzare gli ordini
-let ordini = [];
-
 function aggiornaCarrello() {
   let count = 0;
-  document.querySelectorAll(".panino").forEach(panino => {
-    if (panino.querySelector(".attivo").checked) {
-      count += parseInt(panino.querySelector(".quantita").value) || 0;
+  document.querySelectorAll('.panino').forEach(p => {
+    if (p.querySelector('.attivo').checked) {
+      count += parseInt(p.querySelector('.quantita').value) || 0;
     }
   });
-  
-  document.getElementById("cart-count").textContent = count;
-  document.getElementById("cart-count-text").textContent = count;
+  document.getElementById('cart-count').innerText = count;
+  document.getElementById('cart-count-text').innerText = count;
 }
-
 function apriCarrello() {
-  const riepilogo = document.getElementById("riepilogo");
-  const totale = document.getElementById("totale");
-  
-  riepilogo.innerHTML = "";
-  totale.innerHTML = "";
-  
-  const cliente = document.getElementById("cliente").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  
-  if (cliente) {
-    riepilogo.innerHTML += `<h3>Ordine di ${cliente}${telefono ? ` (${telefono})` : ''}</h3>`;
-  } else {
-    riepilogo.innerHTML += `<h3>Il tuo ordine</h3><p>⚠️ Completa i tuoi dati per procedere</p>`;
-  }
-  
-  let index = 0;
-  let totalePanini = 0;
-  ordini = []; // Reset array ordini
-  
-  document.querySelectorAll(".panino").forEach(panino => {
-    if (!panino.querySelector(".attivo").checked) return;
-    
-    const base = panino.dataset.base;
-    const quantita = parseInt(panino.querySelector(".quantita").value);
-    const pane = panino.querySelector(".pane").value;
-    const variante = panino.querySelector(".variante")?.value || "";
-    const extra = [...panino.querySelectorAll(".extra:checked")].map(x => x.value);
-    const note = panino.querySelector("textarea").value.trim();
-    
-    totalePanini += quantita;
-    
-    // Salva l'ordine nell'array
-    ordini.push({ base, quantita, pane, variante, extra, note });
-    
-    const labelPanini = quantita === 1 ? "panino" : "panini";
-    let dettagli = `<strong>Tipo pane:</strong> ${pane}`;
-    
-    if (variante) dettagli += `<br><strong>Variante:</strong> ${variante}`;
-    if (extra.length) dettagli += `<br><strong>Extra:</strong> ${extra.join(", ")}`;
-    if (note) dettagli += `<br><strong>Note:</strong> ${note}`;
-    
-    const div = document.createElement("div");
-    div.className = "ordine-item";
-    div.innerHTML = `
-      <div class="ordine-details">
-        <span><strong>${quantita} ${labelPanini}</strong> - <u>${base}</u><br>${dettagli}</span>
-      </div>
-      <div class="ordine-actions">
-        <label>Quantità:
-          <input type="number" min="1" value="${quantita}" onchange="modificaQuantita(${index}, this.value)">
-        </label>
-        <button class="danger" onclick="rimuoviPanino(${index})">❌ Rimuovi</button>
-      </div>
-    `;
-    
-    riepilogo.appendChild(div);
-    index++;
+  const lista = document.getElementById('ordine-list');
+  lista.innerHTML = '';
+  document.querySelectorAll('.panino').forEach(p => {
+    if (p.querySelector('.attivo').checked) {
+      const nome = p.dataset.base;
+      const quantita = p.querySelector('.quantita').value;
+      const pane = p.querySelector('.pane').value;
+      const variante = p.querySelector('.variante').value;
+      const extras = [...p.querySelectorAll('.extra:checked')].map(e => e.value);
+      const note = p.querySelector('textarea').value;
+      const div = document.createElement('div');
+      div.className = 'ordine-item';
+      div.innerHTML = `<strong>${nome}</strong> x${quantita}<br>
+        Pane: ${pane}, Variante: ${variante}<br>
+        Extra: ${extras.join(', ') || 'Nessuno'}<br>
+        Note: ${note || '—'}`;
+      lista.appendChild(div);
+    }
   });
-  
-  if (totalePanini > 0) {
-    const label = totalePanini === 1 ? "panino" : "panini";
-    totale.innerHTML = `Totale: ${totalePanini} ${label}`;
-  } else {
-    riepilogo.innerHTML += `<p>Il carrello è vuoto. Seleziona almeno un panino!</p>`;
-  }
-  
-  document.getElementById("modal-carrello").style.display = "flex";
+  document.getElementById('modal-carrello').style.display = 'flex';
 }
-
 function chiudiCarrello() {
-  document.getElementById("modal-carrello").style.display = "none";
+  document.getElementById('modal-carrello').style.display = 'none';
 }
-
-function modificaQuantita(index, nuovaQuantita) {
-  if (nuovaQuantita < 1) nuovaQuantita = 1;
-  
-  const paniniSelezionati = [...document.querySelectorAll(".panino")].filter(p => p.querySelector(".attivo").checked);
-  
-  if (paniniSelezionati[index]) {
-    paniniSelezionati[index].querySelector(".quantita").value = nuovaQuantita;
-    aggiornaCarrello();
-    apriCarrello();
-  }
-}
-
-function rimuoviPanino(index) {
-  const paniniSelezionati = [...document.querySelectorAll(".panino")].filter(p => p.querySelector(".attivo").checked);
-  
-  if (paniniSelezionati[index]) {
-    paniniSelezionati[index].querySelector(".attivo").checked = false;
-    aggiornaCarrello();
-    apriCarrello();
-  }
-}
-
 function svuotaCarrello() {
-  if (confirm("Sei sicuro di voler svuotare tutto il carrello?")) {
-    document.querySelectorAll(".panino .attivo").forEach(checkbox => {
-      checkbox.checked = false;
-    });
-    aggiornaCarrello();
-    apriCarrello();
-  }
+  document.querySelectorAll('.attivo').forEach(c => c.checked = false);
+  aggiornaCarrello();
+  document.getElementById('ordine-list').innerHTML = '';
 }
-
-function inviaWhatsApp() {
-  const cliente = document.getElementById("cliente").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  
-  if (!cliente) {
-    alert("Per favore, inserisci il tuo nome prima di inviare l'ordine.");
-    document.getElementById("cliente").focus();
-    return;
-  }
-  
-  if (ordini.length === 0) {
-    alert("Il carrello è vuoto. Aggiungi almeno un panino!");
-    return;
-  }
-  
-  let messaggio = `Ciao, vorrei ordinare:\n\n`;
-  let totalePanini = 0;
-  
-  ordini.forEach(ordine => {
-    const label = ordine.quantita === 1 ? "panino" : "panini";
-    totalePanini += ordine.quantita;
-    
-    messaggio += `${ordine.quantita} ${label} - ${ordine.base}\n`;
-    messaggio += `  Pane: ${ordine.pane}\n`;
-    
-    if (ordine.variante) messaggio += `  Variante: ${ordine.variante}\n`;
-    if (ordine.extra.length) messaggio += `  Extra: ${ordine.extra.join(", ")}\n`;
-    if (ordine.note) messaggio += `  Note: ${ordine.note}\n`;
-    
-    messaggio += "\n";
-  });
-  
-  const labelTotale = totalePanini === 1 ? "panino" : "panini";
-  messaggio += `Totale: ${totalePanini} ${labelTotale}\n\n`;
-  messaggio += `Cliente: ${cliente}`;
-  if (telefono) messaggio += `\nTelefono: ${telefono}`;
-  
-  const numeroWhatsApp = "393384461593"; // Sostituisci con il numero corretto
-  const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(messaggio)}`;
-  
-  window.open(url, "_blank");
+function inviaOrdine() {
+  const nome = document.getElementById('cliente').value.trim();
+  const telefono = document.getElementById('telefono').value.trim();
+  if (!nome || !telefono) { alert("Inserisci nome e telefono."); return; }
+  alert("Ordine inviato! Grazie " + nome);
+  chiudiCarrello();
+  svuotaCarrello();
 }
-
-// Chiudi il modal cliccando fuori dal contenuto
-window.onclick = function(event) {
-  const modal = document.getElementById("modal-carrello");
-  if (event.target === modal) {
-    chiudiCarrello();
-  }
-}
-
-// Aggiorna il carrello al caricamento della pagina
-document.addEventListener('DOMContentLoaded', aggiornaCarrello);
 </script>
 
 </body>
